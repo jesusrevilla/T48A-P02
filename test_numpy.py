@@ -217,7 +217,7 @@ class TestNumpyExercises(unittest.TestCase):
         
         # Verificar que la salida sea la esperada
 
-        assert "Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]" in output
+        assert "Indices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]" in output
 
         
         print("La prueba unitaria ha pasado exitosamente.")
