@@ -1092,31 +1092,15 @@ add_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1], [2]]))
 def subtract_broadcast(arr1, arr2):
   '''(np.ndarray, np.ndarray) -> np.ndarray
   Regresa la resta de dos arreglos de numpy con formas (3, 2) y (2, 3).
-
-  Returns
-  -------
-  numpy.ndarray
-    arreglo de numpy de forma (3, 2).
-
   Parameters
   ----------
   arr1: numpy.ndarray
     arreglo de numpy de forma (3, 2).
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
-
-  Precondition
-  ------------
-    - arr1.shape == (3, 2)
-    - arr2.shape == (2, 3)
-
-  Examples
-  --------
-  >>> subtract_broadcast(np.array([[1, 2], [3, 4], [5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
   '''
-  assert arr1.shape == (3, 2), 'La forma de arr1 debe ser (3, 2)'
-  assert arr2.shape == (2, 3), 'La forma de arr2 debe ser (2, 3)'
-  return arr1 - arr2
+  return arr1 - arr2.T
+subtract_broadcast(np.array([[1, 2], [3, 4], [5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
