@@ -23,12 +23,12 @@ def rand_int():
   '''Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
-
+  
   Returns
   -------
   numpy.ndarray
     Arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
-
+    
   Examples
   --------
   >>> np.random.seed(10)
@@ -36,7 +36,7 @@ def rand_int():
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
   return np.random.randint(0, 100, 10)
-
+    
 np.random.seed(10)
 rand_int().__repr__()
 
@@ -46,12 +46,12 @@ def rand_float():
   '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
-
+  
   Returns
   -------
   numpy.ndarray
     Arreglo de numpy con 5 números punto flotante entre 0 y 1.
-
+    
   Examples
   --------
   >>> np.random.seed(10)
@@ -59,7 +59,7 @@ def rand_float():
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
   return np.random.rand(5)
-
+    
 np.random.seed(10)
 rand_float().__repr__()
 
@@ -67,37 +67,27 @@ rand_float().__repr__()
 
 def first_10_primes():
   '''Crea un arreglo de numpy con los diez primeros números primos.
-
+  
   Returns
   -------
   numpy.ndarray
     Arreglo de numpy con los diez primeros números primos.
-
+    
   Examples
   --------
   >>> first_10_primes()
   array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
   '''
   return np.array([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
-
+    
 first_10_primes().__repr__()
 
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con los cuadrados de los números del 1 al 10.
-
-  Examples
-  --------
-  >>> squares()
-  array([  1,   4,   9,  16,  25,  36,  49,  64,  81, 100])
   '''
-  return np.array([1, 4, 9, 16, 25, 36, 49, 64, 81, 100])
+  return np.arange(1, 11) ** 2
 
 squares().__repr__()
 
@@ -105,18 +95,8 @@ squares().__repr__()
 
 def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con los cubos de los números del 1 al 10.
-
-  Examples
-  --------
-  >>> cubes()
-  array([   1,    8,   27,   64,  125,  216,  343,  512,  729, 1000])
   '''
-  return np.array([1, 8, 27, 64, 125, 216, 343, 512, 729, 1000])
+  return np.arange(1, 11) ** 3
 
 cubes().__repr__()
 
@@ -127,26 +107,25 @@ cubes().__repr__()
 
 def add_arrays(arr1, arr2):
   '''Regresa la suma de dos arreglos de numpy.
-
+  
   Returns
   -------
   numpy.ndarray
     Suma de dos arreglos NumPy con el mismo tamaño.
-
+    
   Parameters
   ----------
   arr1: numpy.ndarray
   arr2: numpy.ndarray
-
+  
   Precondition
   ------------
     - arr1.shape == arr2.shape
-
+    
   Examples
   --------
   >>> add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
   array([5, 7, 9])
-
   >>> arr1 = np.array([1, 2, 3])
   >>> arr2 = np.array([4, 5, 6])
   >>> add_arrays(arr1, arr2)
@@ -157,149 +136,62 @@ def add_arrays(arr1, arr2):
 
 add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
 
-arr1 = np.array([1, 2, 3])
-arr2 = np.array([4, 5, 6])
-add_arrays(arr1, arr2)
-
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
-
-  Returns
-  -------
-  numpy.ndarray
-    Resta de dos arreglos NumPy con el mismo tamaño.
-
-  Parameters
-  ----------
-  arr1: numpy.ndarray
-  arr2: numpy.ndarray
-
-  Precondition
-  ------------
-    - arr1.shape == arr2.shape
-
-  Examples
-  --------
-  >>> subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-  array([3, 3, 3])
-
-  >>> arr1 = np.array([1, 2, 3])
-  >>> arr2 = np.array([4, 5, 6])
-  >>> subtract_arrays(arr1, arr2)
-  array([3, 3, 3])
   '''
-  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
-  return arr2 - arr1
+  return arr1 - arr2
 
 subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-
-arr1 = np.array([1, 2, 3])
-arr2 = np.array([4, 5, 6])
-subtract_arrays(arr1, arr2)
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
 def multiply_arrays(arr1, arr2):
   '''Multiplica dos arreglos de numpy elemento por elemento.
-
-  Returns
-  -------
-  numpy.ndarray
-    Multiplicación de dos arreglos NumPy con el mismo tamaño.
-
-  Parameters
-  ----------
-  arr1: numpy.ndarray
-  arr2: numpy.ndarray
-
-  Precondition
-  ------------
-    - arr1.shape == arr2.shape
-
-  Examples
-  --------
-  >>> multiply_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-  array([ 4, 10, 18])
-
-  >>> arr1 = np.array([1, 2, 3])
-  >>> arr2 = np.array([4, 5, 6])
-  >>> multiply_arrays(arr1, arr2)
-  array([ 4, 10, 18])
   '''
-  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   return arr1 * arr2
 
 multiply_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-
-arr1 = np.array([1, 2, 3])
-arr2 = np.array([4, 5, 6])
-multiply_arrays(arr1, arr2)
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
 def divide_arrays(arr1, arr2):
   '''Divide arr2 antre arr1 (arreglos de numpy).
-
-  Returns
-  -------
-  numpy.ndarray
-    División de dos arreglos NumPy con el mismo tamaño.
-
-  Parameters
-  ----------
-  arr1: numpy.ndarray
-  arr2: numpy.ndarray
-
+  
   Precondition
   ------------
     - arr2.any(0)
-
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
   return np.divide(arr1, arr2)
 
-arr1 = np.array([2, 2, 2])
-arr2 = np.array([4, 5, 6])
-divide_arrays(arr1, arr2)
+divide_arrays(np.array([5, 5, 6]), np.array([2, 2, 2]))
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
 def stats(arr):
   '''Calcula la media, la mediana y la desviación estándar de un arreglo de numpy
   en un tuple con las siguientes posiciones: (media, mediana, desviacion_std).
-
+  
   Returns
   -------
   tuple
     Tuple con las siguientes posiciones: (media, mediana, desviacion_std).
-
+    
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de los números de 1 a 5.
-
+    
   Precondition
   ------------
     - arr.size == 5
-
-  Examples
-  --------
-  >>> stats(np.array([1, 2, 3, 4, 5]))
-  (3.0, 3.0, 1.4142135623730951)
-
-  >>> arr = np.array([1, 2, 3, 4, 5])
-  >>> stats(arr)
-  (3.0, 3.0, 1.4142135623730951)
   '''
   assert arr.size == 5, 'El arreglo debe tener 5 elementos'
   return (np.mean(arr), np.median(arr), np.std(arr))
 
 stats(np.array([1, 2, 3, 4, 5]))
-
-arr = np.array([1, 2, 3, 4, 5])
-stats(arr)
 
 """### NumPy Array Indexing and Slicing
 
@@ -309,160 +201,105 @@ stats(arr)
 def first_5(arr):
   '''Regresa los primeros 5 elementos de un arr (arreglo) que contiene 10 números
   aleatoreos enteros entre 0 y 100.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con los primeros 5 elementos.
-
+  
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
-
+    
   Precondition
   ------------
     - arr.size == 10
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> first_5(np.random.randint(0, 100,10))
-  array([ 9, 15, 64, 28, 89])
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[:5]
 
 np.random.seed(10)
-first_5(np.random.randint(0, 100,10))
+first_5(rand_int())
 
 """2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
 
 def last_3(arr):
   '''Regresa los últimos 3 elementos de un arr (arreglo) de numpy que contiene 10
   números enteros aleatoreos entre 0 y 100.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con los últimos 3 elementos.
-
+  
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
-
+    
   Precondition
   ------------
     - arr.size == 10
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> last_3(np.random.randint(0, 100,10))
-  array([ 8, 73,  0])
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[-3:]
 
 np.random.seed(10)
-last_3(np.random.randint(0, 100,10))
+last_3(rand_int())
 
 """3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
 
 def indices_2_4_6(arr):
   '''Regresa los elementos en los índices 2, 4 y 6 de un arr (arreglo) que contiene
   10 números enteros aleatoreos entre 0 y 100.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con los elementos en los índices 2, 4 y 6.
-
+  
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
-
+    
   Precondition
   ------------
     - arr.size == 10
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> indices_2_4_6(np.random.randint(0, 100,10))
-  array([64, 89, 29])
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[[2, 4, 6]]
 
 np.random.seed(10)
-indices_2_4_6(np.random.randint(0, 100,10))
+indices_2_4_6(rand_int())
 
 """4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
 
 def greater_50(arr):
   '''Regresa los elementos del arr (arreglo) que contiene 10 números enteros
   aleatoreos entre 0 y 100 que son mayores a 50.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con los elementos que son mayores a 50.
-
+  
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
-
+    
   Precondition
   ------------
     - arr.size == 10
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> greater_50(np.random.randint(0, 100,10))
-  array([64, 89, 93, 73])
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[arr > 50]
 
 np.random.seed(10)
-greater_50(np.random.randint(0, 100,10))
+greater_50(rand_int())
 
 """5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
 
 def less_7(arr):
   '''Regresa los elementos del arr (arreglo) que contiene 10 números enteros
   aleatoreos entre 0 y 100 que son menores o iguales a 7.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con los elementos que son menores o iguales a 7.
-
+  
   Parameters
   ----------
   arr: numpy.ndarray
     - arr: arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
-
+    
   Precondition
   ------------
     - arr.size == 10
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> less_7(np.random.randint(0, 100,10))
-  array([0])
   '''
   assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
   return arr[arr <= 7]
 
 np.random.seed(10)
-less_7(np.random.randint(0, 100,10))
+less_7(rand_int())
 
 """### NumPy Array Reshaping
 
@@ -471,584 +308,98 @@ less_7(np.random.randint(0, 100,10))
 
 def reshape_2x6(arr):
   '''Regresa un arreglo de numpy con 12 números y lo convierte en un arreglo de 2x6.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy de 2x6.
-
+  
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de 12 elementos.
-
+    
   Precondition
   ------------
     - arr.size == 12
-
-  Examples
-  --------
-  >>> reshape_2x6(np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
-  array([[ 1,  2,  3,  4,  5,  6],
-         [ 7,  8,  9, 10, 11, 12]])
   '''
   assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
   return arr.reshape(2, 6)
 
-reshape_2x6(np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
+reshape_2x6(np.arange(1, 13))
 
 """2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
 
 def reshape_2x3x4(arr):
-  '''Convierte un arreglo de numpy con 24 números en un arreglo de 2x3x4.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy de 2x3x4.
-
+  '''Conviert un arreglo de numpy con 24 números en un arreglo de 2x3x4.
+  
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de 24 elementos.
-
+    
   Precondition
   ------------
     - arr.size == 24
-
-  Examples
-  --------
-  >>> reshape_2x3x4(np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]))
-  array([[[ 1,  2,  3,  4],
-          [ 5,  6,  7,  8],
-          [ 9, 10, 11, 12]],
-  <BLANKLINE>
-         [[13, 14, 15, 16],
-          [17, 18, 19, 20],
-          [21, 22, 23, 24]]])
   '''
   assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
   return arr.reshape(2, 3, 4)
 
-reshape_2x3x4(np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]))
+reshape_2x3x4(np.arange(1, 25))
 
 """3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
 
 def reshape_10x10(arr):
   '''Convierte un numpy array en un numpy array de 10x10.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy de 10x10.
-
+  
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de 100 elementos.
-
+    
   Precondition
   ------------
     - arr.size == 100
-
-  Examples
-  --------
-  >>> reshape_10x10(np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]))
-  array([[  1,   2,   3,   4,   5,   6,   7,   8,   9,  10],
-         [ 11,  12,  13,  14,  15,  16,  17,  18,  19,  20],
-         [ 21,  22,  23,  24,  25,  26,  27,  28,  29,  30],
-         [ 31,  32,  33,  34,  35,  36,  37,  38,  39,  40],
-         [ 41,  42,  43,  44,  45,  46,  47,  48,  49,  50],
-         [ 51,  52,  53,  54,  55,  56,  57,  58,  59,  60],
-         [ 61,  62,  63,  64,  65,  66,  67,  68,  69,  70],
-         [ 71,  72,  73,  74,  75,  76,  77,  78,  79,  80],
-         [ 81,  82,  83,  84,  85,  86,  87,  88,  89,  90],
-         [ 91,  92,  93,  94,  95,  96,  97,  98,  99, 100]])
   '''
   assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
   return arr.reshape(10, 10)
 
-reshape_10x10(np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
-  35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
-  71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]))
+reshape_10x10(np.arange(1, 101))
 
 """4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
 
 def reshape_10x10x10(arr):
   '''(np.ndarray) -> np.ndarray
-  Regresa un arreglo de 10x10x10 que contiene 10 números aleatoreos enteros entre 0 y 1000.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy de 10x10x10.
-
+  Regresa un arreglo de 10x10x10.
+  
   Parameters
   ----------
   arr: numpy.ndarray
    arreglo de numpy de 1000 elementos.
-
+   
   Precondition
   ------------
     - arr.size == 1000
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> reshape_10x10x10(np.random.randint(0, 1000, 1000))
-  array([[[265, 125, 996, 527, 320, 369, 123, 156, 985, 733],
-          [496, 925, 881,   8,  73, 256, 490,  40, 502, 420],
-          [371, 528, 356, 239, 395,  54, 344, 363, 122, 574],
-          [545, 200, 868, 974, 689, 691,  54,  77, 453,  13],
-          [755, 409, 382, 653, 860, 342, 798, 670,  89, 652],
-          [321, 543, 825, 804, 283, 530,  93,  77, 406, 919],
-          [606, 760, 395, 668,  74, 216, 393,  15, 530, 464],
-          [630,  71, 344, 395, 657, 430, 135, 715, 796, 801],
-          [468, 762, 864, 472,  44, 645,   4,  71, 344, 856],
-          [818, 364, 182, 290, 360, 783, 461, 856, 655, 134]],
-  <BLANKLINE>
-         [[246, 597, 746, 662, 523, 624, 780, 732, 480,  62],
-          [502, 185, 591, 364, 232, 554, 749, 313, 747, 865],
-          [818, 557, 936, 985, 713, 677, 640, 914, 535, 515],
-          [797, 784, 340, 338, 624, 526,  51,  79, 243, 785],
-          [690,  53, 921, 366, 944, 234, 785, 416, 337, 745],
-          [464,  41,  90, 268, 498, 286, 209, 401, 144, 128],
-          [671, 357, 201, 960, 756, 380, 422, 766, 534, 608],
-          [834,  67, 446,  95, 355, 923,  82,  62, 758, 589],
-          [506, 363,  48, 373, 989, 749, 459, 627, 470, 421],
-          [779, 917, 929, 607, 683, 984, 736, 741,  73, 680]],
-  <BLANKLINE>
-         [[357, 427, 747, 346, 583, 648, 725, 328, 412, 255],
-          [877, 542, 123, 985, 665, 206, 465, 213, 958,  13],
-          [681, 929, 516, 727, 350, 540, 551, 347, 103, 777],
-          [263, 150,  32, 771, 521, 180, 972, 708, 158, 454],
-          [376, 884, 330, 798, 137, 258, 961, 506, 998, 627],
-          [490, 653, 459, 436, 645, 221, 340, 944, 958, 810],
-          [674, 168,  46, 928, 503, 350,  86, 186, 453, 376],
-          [813,  18, 434, 496, 556, 385, 319, 875, 717, 530],
-          [923, 595, 677, 455, 472, 103, 655,  55, 902, 812],
-          [  9, 818,   0, 556, 324, 270, 493, 117, 388, 902]],
-  <BLANKLINE>
-         [[ 42, 201, 556, 368, 763, 996, 474, 806, 404, 905],
-          [552, 656, 331, 423, 314, 209, 551, 561, 127, 993],
-          [395, 206, 362, 847, 533, 453, 432, 316, 826, 397],
-          [360, 515, 927, 204, 471, 145, 925, 453, 690, 563],
-          [660,   5, 247, 876, 710, 189, 232, 912, 714, 644],
-          [918, 787, 597, 713, 291, 632, 291, 112, 267, 553],
-          [310, 978,  19, 297, 977, 701, 394,  36, 512, 251],
-          [158, 830, 597, 288, 490, 616, 977, 269, 963, 246],
-          [892, 927, 288, 736, 934, 165, 207, 187, 359, 532],
-          [927,  89, 636, 256, 352, 281, 575, 827, 258, 542]],
-  <BLANKLINE>
-         [[ 17, 827, 198, 959,  86, 541, 106, 711, 348, 275],
-          [505, 640, 391, 251, 477, 938, 599, 825, 762, 208],
-          [  2, 674,  58, 460, 650,  79, 928, 837, 760, 219],
-          [144, 517, 889,  63, 851, 843, 682, 889, 422, 185],
-          [135, 984, 736, 873, 550, 878, 560, 667, 365, 320],
-          [689, 474, 265, 283, 308, 346, 825, 944, 113, 362],
-          [ 23, 409, 659, 560, 488, 737, 332, 587, 605, 286],
-          [799, 156, 101, 975, 212, 149, 724, 227, 686, 942],
-          [301, 478, 852, 148, 433, 289, 642, 481, 865, 226],
-          [780, 338, 494, 205,  66, 549, 671, 312, 209, 343]],
-  <BLANKLINE>
-         [[465, 382,  55, 865, 586, 760,  15, 975, 848,  38],
-          [439, 885,  49, 986, 642, 838, 737, 901, 968, 541],
-          [496, 275,  25,  15, 182, 611, 480, 850, 696, 553],
-          [346,  26, 458,   8, 476, 160, 327, 343, 964, 214],
-          [ 14, 291, 468, 111, 677, 111, 574, 579, 526, 677],
-          [825, 974, 620, 290, 947, 818, 178, 469,  14, 888],
-          [436, 926,  81, 998, 522, 829, 279, 129, 540, 570],
-          [266, 247, 523, 897, 509, 210, 674, 119, 651,  46],
-          [330, 676, 902, 575, 759, 316,   3, 306,  59, 761],
-          [162, 661, 400, 871, 146,  61, 694, 634, 956, 405]],
-  <BLANKLINE>
-         [[382, 983,  83, 583, 144, 451, 678, 667, 480, 727],
-          [ 98,  89, 757, 241, 656, 594, 659, 753, 626, 864],
-          [ 50, 984, 488, 136, 982, 117, 459, 200, 600, 232],
-          [154, 336, 118, 412, 154, 862, 641, 347, 898, 728],
-          [316, 435, 653, 333, 793, 189, 424, 390, 871, 111],
-          [933,  81,  70, 377, 934, 765, 107, 503, 741, 478],
-          [258, 932, 330, 312, 921, 466, 480, 826, 400, 470],
-          [382, 296, 607, 238, 422,   4, 407,  58, 935, 128],
-          [422, 884, 462, 621, 457, 236, 231, 282, 849, 645],
-          [257, 396, 227,  86, 371, 497,   0, 199,   0, 826]],
-  <BLANKLINE>
-         [[538, 787, 466, 967, 901, 541, 257, 317, 156, 902],
-          [853, 243, 343, 347, 626, 771, 868, 390, 740, 610],
-          [ 91, 566, 648, 840, 522, 105, 697, 340, 388, 215],
-          [449, 391,  72, 939, 560, 344, 889, 170,  21, 727],
-          [110, 914, 275, 462, 741, 227, 160, 663, 727, 943],
-          [824, 303, 802, 224, 355, 785, 489, 352,  96, 367],
-          [509, 402, 637, 836, 130, 527, 937, 455,  97, 874],
-          [563, 581, 164, 714,  28, 849, 311, 200, 390, 272],
-          [895, 788, 515, 432, 460, 588, 186,  65, 594, 791],
-          [536, 456, 310, 976, 627,  21, 694, 659, 351, 310]],
-  <BLANKLINE>
-         [[  3, 623, 610, 409, 681,  14, 713, 583, 166, 433],
-          [790, 624, 609,  47, 159, 814,  98, 389, 398, 844],
-          [272, 220, 532, 466, 265, 824, 677, 610, 262, 670],
-          [579, 967, 198, 309, 184, 269, 379, 778, 572, 639],
-          [638, 545, 938, 128, 472, 950, 568, 676, 983, 878],
-          [834, 502, 614, 517, 183, 913, 769, 713, 435, 973],
-          [141, 993, 519, 509, 794, 522, 500, 750, 254, 166],
-          [888, 265, 866, 934, 950, 698, 673, 790, 858, 328],
-          [438, 579, 296, 766, 988, 943, 687, 743, 770, 108],
-          [535, 237, 893, 415, 833, 568, 804, 599, 644, 590]],
-  <BLANKLINE>
-         [[ 99, 315, 726, 286, 940, 615, 772, 727, 293, 878],
-          [767, 834, 571, 547, 578, 697, 186, 768, 692, 135],
-          [122, 669,  42, 754, 456, 720, 754, 519, 160,  84],
-          [971, 268, 592, 757, 614, 100, 992, 969, 321, 549],
-          [584, 237, 423, 542, 295, 581, 167, 608, 185, 994],
-          [792, 263, 851, 485, 297,  19, 997, 631, 920, 928],
-          [ 15, 214, 116, 161, 254, 357,  66, 457, 398, 293],
-          [664, 505,  83,  19,  63, 847, 931, 709, 351, 629],
-          [473, 635, 825, 547,  94, 867, 758, 322, 914, 251],
-          [260, 639, 971, 480, 831, 652, 602,  58, 458, 911]]])
   '''
   assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
   return arr.reshape(10, 10, 10)
 
-np.random.seed(10)
-reshape_10x10x10(np.random.randint(0, 1000, 1000))
+reshape_10x10x10(np.arange(1, 1001))
 
 """5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
 
 def reshape_10x10x10x10(arr):
   '''(np.ndarray) -> np.ndarray
-  Regresa un arreglo de numpy de 10x10x10x10 que contiene 10000 números aleatoreos enteros entre 0 y 10000.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy de 10x10x10x10.
-
+  Regresa un arreglo de numpy de 10x10x10x10.
+  
   Parameters
   ----------
   arr: numpy.ndarray
     arreglo de numpy de 10000 elementos.
-
+    
   Precondition
   ------------
     - arr.size == 10000
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> reshape_10x10x10x10(np.random.randint(0, 10000, 10000))
-  array([[[[1289, 7293, 1344, ..., 9224, 9289, 6400],
-         [5648, 4452,  239, ...,  574, 8036, 9166],
-         [6899,  409, 1406, ..., 2700, 7489, 1828],
-         ...,
-         [2797, 6457, 4843, ..., 1539, 2845, 7952],
-         [1362, 1103, 7411, ..., 6929, 7505, 7913],
-         [9714, 8478, 7377, ..., 5477, 4297, 9972]],
-
-        [[6566, 2814,  534, ..., 1106, 2110, 3830],
-         [1613,  506, 9264, ..., 2033, 3493, 5013],
-         [9957, 4776, 3429, ..., 2376,  412, 1279],
-         ...,
-         [1527, 4446, 3158, ..., 3568, 5676,  875],
-         [2765, 7067, 4551, ..., 7177, 5390, 6637],
-         [4213, 5508, 9094, ..., 2854, 6025, 6475]],
-
-        [[3495, 8506, 2609, ..., 8645, 4528, 9532],
-         [2874, 7565, 9420, ..., 5810, 1587, 2053],
-         [5367, 5996, 4285, ..., 2835, 6741, 7459],
-         ...,
-         [7645,  938, 6969, ..., 3532, 7072,  144],
-         [ 889, 8255, 3915, ..., 8752, 9581, 4416],
-         [5809, 2356, 6490, ..., 9239, 8851, 2608]],
-
-        ...,
-
-        [[3095, 4234,  884, ..., 9454, 2678, 3888],
-         [7187, 9207, 4604, ...,  849, 3550, 7363],
-         [4043, 9524, 7384, ..., 6276, 3414, 3998],
-         ...,
-         [6554, 8951, 3255, ..., 4311, 2455, 7673],
-         [ 198, 2525, 1083, ..., 5017, 3167,  399],
-         [2284, 6401, 9881, ..., 7156, 3578,  240]],
-
-        [[2841, 7956, 5631, ..., 9886, 2799, 5369],
-         [9208, 6313, 2455, ..., 7672, 7399, 7737],
-         [2010,   82, 1816, ..., 2337, 1544, 9050],
-         ...,
-         [1784, 8631,  377, ..., 4137, 3848, 2797],
-         [9093, 5272, 5927, ..., 5587, 2721, 7808],
-         [2009,   52, 1074, ..., 6843, 6087, 8690]],
-
-        [[5036, 3013, 8589, ..., 3700, 6485, 5997],
-         [3587,  676, 6785, ..., 2596, 3249,  722],
-         [ 232, 5056, 3282, ..., 8671, 8630, 1706],
-         ...,
-         [ 572, 5040, 1516, ..., 2545, 9521, 1488],
-         [1795, 4483, 6589, ..., 3067, 4730, 2032],
-         [2495, 4962, 7103, ..., 4235, 8989, 2373]]],
-
-
-       [[[ 995, 7345, 6463, ..., 9028, 7720,  251],
-         [6124, 7818, 7677, ..., 5640, 9725, 3718],
-         [1921, 5413, 7640, ..., 6153, 6843, 7394],
-         ...,
-         [9767, 2653,  843, ..., 6398, 2984, 7753],
-         [4582, 8147, 8969, ..., 9880, 4334, 2162],
-         [3952, 2535, 5267, ..., 9410, 7443, 3974]],
-
-        [[7727, 2788, 2295, ..., 6750,  644, 4853],
-         [ 791, 4586, 1322, ..., 2552, 8546, 6715],
-         [2223, 8461, 1675, ..., 1842, 3721, 6557],
-         ...,
-         [3356, 2185, 6334, ..., 3918, 9704, 5957],
-         [3976, 5152, 8733, ..., 2123, 3753, 9771],
-         [5334, 6196, 1742, ..., 8860, 6084, 6860]],
-
-        [[4258, 4990, 6331, ..., 6802, 4474, 1819],
-         [4865, 9803, 4758, ..., 4556, 9373, 2622],
-         [6295, 2778, 1511, ...,  670,  395, 7409],
-         ...,
-         [6059, 9748, 3873, ..., 8631, 7763, 4774],
-         [4648,  740, 2869, ..., 7786, 4134, 5856],
-         [3844, 7902, 2606, ...,  941, 8151, 4679]],
-
-        ...,
-
-        [[1387, 9194, 1395, ..., 9005, 3171, 2252],
-         [7126, 3672, 3804, ..., 5438,  994, 1515],
-         [8409, 7593, 7723, ..., 7276, 1426, 4078],
-         ...,
-         [4126, 2963, 6898, ..., 4170, 1545, 6582],
-         [7902, 8099, 1507, ..., 7140, 3260, 2154],
-         [1880, 1268,  271, ..., 1640, 9856, 3628]],
-
-        [[4614, 5655, 2014, ..., 6156, 9885, 5283],
-         [7643, 9347, 9512, ..., 7231, 2934, 2038],
-         [2053,   50, 4728, ..., 4323, 7867, 2349],
-         ...,
-         [ 215, 7719, 2620, ..., 3742, 3453, 4462],
-         [9115, 5621, 2559, ..., 7049, 3656, 2171],
-         [8637, 5548, 3273, ..., 4166, 8817, 3635]],
-
-        [[7078, 7074, 6648, ..., 2503, 1417, 3256],
-         [2968, 8603, 2842, ..., 9411, 8607, 2606],
-         [2915, 3473, 5159, ..., 7116, 5728, 5710],
-         ...,
-         [7766, 3898, 5243, ...,  261, 7792,  905],
-         [1738, 2110, 3346, ..., 4358, 2348, 1201],
-         [9293, 9058, 4251, ..., 2638, 3635, 1312]]],
-
-
-       [[[9328, 3033,  666, ..., 1098, 5707, 1577],
-         [ 184, 9351, 9475, ..., 5053,  663, 2126],
-         [3389, 7395, 3279, ...,   71, 9430, 4014],
-         ...,
-         [1000, 3661,  141, ..., 7705, 8447, 9455],
-         [ 505, 8070, 4054, ..., 2232, 9977, 2877],
-         [9313, 9330,  412, ..., 2800, 7410, 9440]],
-
-        [[1658, 8719, 4839, ..., 6283, 4695, 8352],
-         [9888, 5197, 9303, ..., 4890, 3771, 3703],
-         [3474, 3966, 3994, ..., 6139, 7419, 7390],
-         ...,
-         [4948,  305, 5024, ..., 7820, 8594, 6309],
-         [6296, 9640, 5255, ..., 8981, 5836,  861],
-         [9157, 1493,  754, ..., 5789, 7144, 7710]],
-
-        [[7478,  592, 4344, ..., 1781,  512, 2272],
-         [7867, 2765, 6301, ..., 2808, 4122, 6343],
-         [ 685, 7743, 5539, ...,  128, 2907, 1332],
-         ...,
-         [9185, 9467, 7109, ..., 2876, 5766, 8498],
-         [5868, 5147, 6233, ..., 2686, 6885, 1666],
-         [8430, 7808, 2202, ..., 1953, 4875, 3881]],
-
-        ...,
-
-        [[9268, 5281, 8827, ..., 2711, 8628, 4875],
-         [4452,  220, 3780, ..., 2213, 9265, 2333],
-         [1195, 2958, 3497, ..., 8855,  208, 8109],
-         ...,
-         [4821, 2832, 8818, ..., 5039, 5740, 4482],
-         [1748, 2818, 7671, ..., 2910, 5950, 9947],
-         [9874, 5593, 5648, ..., 9104,  820, 5404]],
-
-        [[7365, 8649, 1221, ..., 4443, 4108, 2568],
-         [6888, 7479, 4255, ..., 5600, 4686, 7195],
-         [5909, 3979, 5656, ..., 4186, 1191, 4018],
-         ...,
-         [1759, 5599, 5965, ..., 4119, 2385,  963],
-         [2254, 2073, 9663, ...,   65, 9603, 1493],
-         [9381, 6308, 2295, ..., 6446,  425, 7643]],
-
-        [[2127, 4725, 7784, ..., 7973, 1801, 5002],
-         [  45, 8062, 9420, ..., 4053, 9242, 8201],
-         [9757, 6374, 4063, ..., 8822, 1924, 9452],
-         ...,
-         [4208, 6325, 1749, ..., 3541,  434, 8989],
-         [3453, 1297,  678, ..., 1889, 5435, 1548],
-         [3996, 4354, 5945, ..., 1666, 3767, 2908]]],
-
-
-       ...,
-
-
-       [[[2461, 6237, 7050, ..., 1498, 9714, 2279],
-         [7845, 6878,  244, ..., 2452, 1023, 9186],
-         [2747, 6003,  262, ...,  978, 4740, 2313],
-         ...,
-         [5069, 4543, 6619, ..., 6767, 2925, 1916],
-         [3712, 5926, 6394, ..., 6585, 8903, 1532],
-         [5193, 4498, 7041, ..., 2112, 1715, 2162]],
-
-        [[1658, 1213, 3706, ..., 1699, 4869, 1545],
-         [ 740, 5328, 3432, ...,  996, 7737, 1819],
-         [8240, 4740, 8491, ..., 5127, 4433, 2341],
-         ...,
-         [1896,  555, 6273, ..., 2811, 6019, 6882],
-         [2754, 7145,  630, ...,  530, 6153, 6646],
-         [3328, 7741, 7761, ..., 8389, 1097, 9470]],
-
-        [[8149, 9733, 4784, ..., 2945, 1788, 7384],
-         [4661, 1207, 2596, ..., 7609, 7844, 6371],
-         [7004, 9925,  897, ..., 2489,  314, 9179],
-         ...,
-         [2989, 2491, 9674, ..., 7819, 5040, 8449],
-         [5959, 4117, 9843, ..., 3887, 9450, 8305],
-         [ 147, 8030, 2548, ..., 6750, 2143, 6777]],
-
-        ...,
-
-        [[2983, 6629, 4284, ..., 3877, 6969, 3546],
-         [7960,  799, 7750, ..., 7130, 6091, 1432],
-         [7108, 3602, 3083, ..., 4439, 8932, 3050],
-         ...,
-         [4763, 9276, 5778, ..., 7865, 6066, 3131],
-         [3393, 2010, 1111, ..., 1856, 5685, 2439],
-         [4087, 2914, 5794, ..., 1403, 6848, 8416]],
-
-        [[6359, 4887,  579, ..., 8471, 4430, 2421],
-         [8365, 7916, 4772, ..., 3382,  644, 1518],
-         [1295, 4787,  794, ..., 5404, 8984, 9800],
-         ...,
-         [7873, 8634, 6461, ..., 6775, 8496, 4487],
-         [ 852, 4450, 2709, ..., 5861, 7468, 9824],
-         [1492, 4620,  885, ..., 2626, 6269, 6565]],
-
-        [[3420, 5857, 5144, ..., 6391, 8623, 8514],
-         [ 483, 2267, 9058, ...,  927, 4793, 8261],
-         [4569,  471, 7162, ..., 8353, 6658, 8690],
-         ...,
-         [8471, 1546, 4936, ..., 4388, 6886, 8823],
-         [8303, 2715, 6753, ..., 1160, 2864, 8055],
-         [3958, 4550, 4578, ..., 8571, 3103, 7562]]],
-
-
-       [[[ 432, 2209, 3993, ..., 4036, 4276, 8233],
-         [3344, 5733, 4237, ..., 5483, 7035, 8077],
-         [6944, 4348, 7331, ..., 4847, 5730, 2810],
-         ...,
-         [7578, 4511, 4331, ..., 7646, 6490, 6034],
-         [6562, 7724, 2970, ..., 9292, 1871, 8968],
-         [9391, 8864, 2419, ..., 3409, 3056, 4897]],
-
-        [[1253, 7987, 4497, ..., 7876, 5678, 1836],
-         [5783, 3920, 5231, ..., 3235, 7712,  989],
-         [7610, 7968, 6934, ..., 9243, 4637, 7504],
-         ...,
-         [5141, 9830,   49, ..., 1666, 1695,  867],
-         [ 492, 1295, 8718, ..., 5281, 5484, 2860],
-         [9634, 6615, 4621, ..., 5793, 2555,  438]],
-
-        [[1857, 4452,  797, ..., 2514, 6827, 9467],
-         [8952, 2109, 3480, ..., 7784,   18,  659],
-         [5871, 4973,  234, ..., 1918, 3542, 1012],
-         ...,
-         [4263, 6408, 4574, ..., 8197, 3597,  933],
-         [5197, 6048, 7007, ..., 4725, 7134, 6097],
-         [2937, 9479,   78, ..., 5578, 2424, 1696]],
-
-        ...,
-
-        [[ 737, 1243, 9379, ..., 3046,  946, 7635],
-         [2415, 5325, 7805, ..., 9541, 7672, 8244],
-         [3581, 6016, 9041, ..., 4946, 5154, 9094],
-         ...,
-         [ 956, 2857, 3987, ..., 8231, 6465, 3619],
-         [3607, 4324, 4332, ..., 9244, 5525,  382],
-         [6446, 5650, 3095, ..., 9872, 8164, 1380]],
-
-        [[7918, 4261, 9431, ..., 4710, 7505, 5648],
-         [4908, 2054, 3452, ..., 9529,  966,  129],
-         [7262,  747, 8762, ..., 8658, 1026, 9898],
-         ...,
-         [3952,  949, 6456, ..., 2564, 4914,  415],
-         [1656, 8672, 1975, ..., 3396, 5812, 2515],
-         [ 282, 3569, 2267, ..., 4597, 7807, 2510]],
-
-        [[8055, 4012, 4511, ..., 5590, 7936, 5341],
-         [1253, 1835, 7038, ..., 4126, 9605, 6996],
-         [4588, 5353, 2739, ..., 9796, 2808, 3763],
-         ...,
-         [ 946, 3321, 7322, ..., 4525, 1813, 6650],
-         [8161,  123, 5495, ..., 4868, 8310, 8949],
-         [6947, 7124, 1545, ..., 1201, 6059, 3391]]],
-
-
-       [[[7216, 1562, 8947, ..., 4521,  564, 8629],
-         [5712, 9438, 4802, ..., 9836, 2068, 9725],
-         [5170, 8123, 4762, ..., 6085, 5998, 7879],
-         ...,
-         [5677, 1425, 8052, ...,  571, 1918, 2106],
-         [3294, 9669, 1654, ..., 7511, 3646, 5686],
-         [3142, 5425, 8361, ..., 9714, 4377, 2819]],
-
-        [[6738, 5810, 1322, ..., 6980, 4057, 1649],
-         [5673, 5829, 4367, ..., 4323, 5499, 3597],
-         [6843, 9757,  329, ..., 2567,  984, 6282],
-         ...,
-         [4963, 1085, 2763, ..., 9053,  970, 9186],
-         [9947, 2501, 7947, ..., 2160, 7155, 8346],
-         [ 782, 2463, 5870, ..., 5744, 3137, 7287]],
-
-        [[1342, 9529, 9982, ..., 6018, 6365, 8514],
-         [2977, 2587, 3795, ..., 9338, 4298, 3683],
-         [8229, 4864, 4534, ..., 6933, 7114, 2089],
-         ...,
-         [6962, 8878, 5926, ..., 1747,    5,  265],
-         [2751, 9915, 1898, ..., 7298, 7552, 6748],
-         [1283, 1393, 3798, ..., 9427, 9831, 7489]],
-
-        ...,
-
-        [[9314, 6221, 9203, ..., 7630, 6402, 6899],
-         [7118, 7748, 4599, ..., 8474, 1921,  162],
-         [9630, 9943, 3034, ..., 9782, 9279, 7214],
-         ...,
-         [7318, 2594, 5304, ..., 7143, 8271, 6283],
-         [9252,  233, 9908, ...,  729, 7370, 6521],
-         [8657, 9290,  270, ..., 1092, 3667, 9610]],
-
-        [[3173, 5825, 6100, ..., 4281, 7812, 4453],
-         [4105, 6660, 9051, ..., 4902, 1329, 8144],
-         [ 947, 7834, 9912, ..., 9378, 5371, 9422],
-         ...,
-         [ 407, 9226, 2359, ..., 9923, 8256, 7394],
-         [7974, 5254, 8298, ..., 8983, 8510, 6253],
-         [3863,  888, 8905, ..., 5325, 6736, 5805]],
-
-        [[5253, 6957, 5325, ..., 2237, 4948, 3143],
-         [3379,  914, 7795, ..., 7521, 5743, 7788],
-         [4576, 3763, 2341, ..., 5815, 4160, 1059],
-         ...,
-         [4576, 3924, 3884, ..., 3962, 7029, 5429],
-         [5333, 8929, 6768, ..., 3896,  767, 9933],
-         [6703, 2373,  315, ..., 7016, 7882, 6723]]]])
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
   return arr.reshape(10, 10, 10, 10)
 
-np.random.seed(10)
-reshape_10x10x10x10(np.random.randint(0, 10000, 10000)).__repr__()
+reshape_10x10x10x10(np.arange(1, 10001))
 
 """### NumPy Array Broadcasting
 
@@ -1056,33 +407,15 @@ reshape_10x10x10x10(np.random.randint(0, 10000, 10000)).__repr__()
 """
 
 def add_broadcast(arr1, arr2):
-  '''Suma de dos arreglos de numpy con tamaños (2, 3) y (2, 1).
-
-  Returns
-  -------
-  numpy.ndarray
-    arreglo de numpy de forma (2, 3).
-
+  '''Suma de dos arreglos de numpy con formas (2, 3) y (2, 1).
+  
   Parameters
   ----------
   arr1: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
-
-  Precondition
-  ------------
-    - arr1.shape == (2, 3)
-    - arr2.shape == (2, 1)
-
-  Examples
-  --------
-  >>> add_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1], [2]]))
-  array([[2, 3, 4],
-         [6, 7, 8]])
   '''
-  assert arr1.shape == (2, 3), 'La forma de arr1 debe ser (2, 3)'
-  assert arr2.shape == (2, 1), 'La forma de arr2 debe ser (2, 1)'
   return arr1 + arr2
 
 add_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1], [2]]))
@@ -1092,6 +425,7 @@ add_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1], [2]]))
 def subtract_broadcast(arr1, arr2):
   '''(np.ndarray, np.ndarray) -> np.ndarray
   Regresa la resta de dos arreglos de numpy con formas (3, 2) y (2, 3).
+  
   Parameters
   ----------
   arr1: numpy.ndarray
@@ -1100,38 +434,21 @@ def subtract_broadcast(arr1, arr2):
     arreglo de numpy de forma (2, 3).
   '''
   return arr1 - arr2.T
+
 subtract_broadcast(np.array([[1, 2], [3, 4], [5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
 def multiply_broadcast(arr1, arr2):
   '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2).
-
-  Returns
-  -------
-  numpy.ndarray
-    arreglo de numpy de forma (2, 2).
-
+  
   Parameters
   ---------
   arr1: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   arr2: numpy.ndarray
     arreglo de numpy de forma (3, 2).
-
-  Precondition
-  ------------
-    - arr1.shape == (2, 3)
-    - arr2.shape == (3, 2)
-
-  Examples
-  -------------
-  >>> multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2], [3, 4], [5, 6]]))
-  array([[22, 28],
-         [49, 64]])
   '''
-  assert arr1.shape == (2, 3), 'La forma de arr1 debe ser (2, 3)'
-  assert arr2.shape == (3, 2), 'La forma de arr2 debe ser (3, 2)'
   return arr1 @ arr2
 
 multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2], [3, 4], [5, 6]]))
@@ -1140,32 +457,14 @@ multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2], [3, 4], [
 
 def divide_broadcast(arr1, arr2):
   '''Divide dos arreglos de numpy con formas (2, 3) y (2, 1).
-
-  Returns
-  -------
-  numpy.ndarray
-    arreglo de numpy de forma (2, 3).
-
+  
   Parameters
   ----------
   arr1: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 1).
-
-  Precondition
-  ------------
-    - arr1.shape == (2, 3)
-    - arr2.shape == (2, 1)
-
-  Examples
-  --------
-  >>> divide_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1], [2]]))
-  array([[1. , 2. , 3. ],
-         [2. , 2.5, 3. ]])
   '''
-  assert arr1.shape == (2, 3), 'La forma de arr1 debe ser (2, 3)'
-  assert arr2.shape == (2, 1), 'La forma de arr2 debe ser (2, 1)'
   return arr1 / arr2
 
 divide_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1], [2]]))
@@ -1174,32 +473,14 @@ divide_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1], [2]]))
 
 def element_wise_product(arr1, arr2):
   '''Multiplica elemento a elemento dos arreglos de numpy con formas (2, 3).
-
-  Returns
-  -------
-  numpy.ndarray
-    arreglo de numpy de forma (2, 3).
-
+  
   Parameters
   ----------
   arr1: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
-
-  Precondition
-  ------------
-    - arr1.shape == (2, 3)
-    - arr2.shape == (2, 3)
-
-  Examples
-  --------
-  >>> element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
-  array([[ 1,  4,  9],
-         [16, 25, 36]])
   '''
-  assert arr1.shape == (2, 3), 'La forma de arr1 debe ser (2, 3)'
-  assert arr2.shape == (2, 3), 'La forma de arr2 debe ser (2, 3)'
   return arr1 * arr2
 
 element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2, 3], [4, 5, 6]]))
@@ -1212,66 +493,52 @@ element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[1, 2, 3], [4, 
 def temp_data(temps):
   '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
   días en los que la temperatura fue menor a 15 grados.
-
-  Returns
-  -------
-    Número de días en los que la temperatura fue menor a 15 grados y número de días en los que la temperatura fue mayor a 25 grados.
-
+  
   Parameters
   ----------
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
-
-  Examples
-  --------
-  >>> temp_data(np.array([10, 15, 20, 25, 30, 35, 40, 45, 50]))
-  'Número de días en los que la temperatura fue menor a 15 grados: 1; Número de días en los que la temperatura fue mayor a 25 grados: 5'
   '''
-  return f'Número de días en los que la temperatura fue menor a 15 grados: {np.sum(temps < 15)}; Número de días en los que la temperatura fue mayor a 25 grados: {np.sum(temps > 25)}'
+  mayor_a_25 = temps[temps > 25]
+  dias_menores_a_15 = np.sum(temps < 15)
+  print(f'Temperaturas mayores a 25 grados: {mayor_a_25}')
+  print(f'Número de días con temperatura menor a 15 grados: {dias_menores_a_15}')
 
-temps = np.array([10, 15, 20, 25, 30, 35, 40, 45, 50])
-temp_data(temps)
+temp_data(np.array([10, 15, 20, 25, 30, 35, 40]))
+
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
   '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia
-
-  Returns
-  -------
-  numpy.ndarray
-    arreglo de numpy de índices de las ciudades que tuvieron más de 100 mm de lluvia.
-
+  
   Parameters
   ----------
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
-    
   '''
-  print("Índices de las ciudades con más de 100 mm de lluvia:", np.where(rainfall > 100)[0])
+  rainfall_1D = rainfall.flatten() #convertimos el arreglo 2D en uno 1D
+  i = np.where(rainfall_1D > 100)[0] #filtramos a los indices con niveles mayores a 100mm
+  i = list(map(int, i)) #pasa los datos a enteros normales
+  i_str = str(i).replace(',', '') #el formato esperado no requiere ',' por eso las eliminamos
+  print(f'Índices de las ciudades con más de 100 mm de lluvia: {i_str}')
 
-rainfall_data(np.array([[100, 200, 300], [400, 500, 600]]))
+rainfall_data(np.array([[10, 900], [60, 400], [60, 110], [60, 40], [200, 90]]))
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
 def image_thresholding(image, threshold=128):
   '''Genera un arreglo de numpy en blanco y negro.
-
-  Returns
-  -------
-  numpy.ndarray
-    arreglo de numpy de imagen en blanco y negro.
-
+  
   Parameters
   ----------
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
-    
   '''
   binary_image = np.where(image >= threshold, 255, 0)
   return binary_image
 
-image_thresholding(np.array([[100, 150, 200], [50, 125, 175], [0, 255, 128]]))
+image_thresholding(np.array([[100, 200, 30], [240, 50, 160], [170, 80, 190]]))
 
 """### Fancy Indexing
 
@@ -1280,32 +547,17 @@ image_thresholding(np.array([[100, 150, 200], [50, 125, 175], [0, 255, 128]]))
 
 def matrix_diagonals(matrix):
   '''Regresa un tuple con los elementos de la diagonal principal y antidiagonal.
-
-  Returns
-  -------
-  tuple
-    tuple con los elementos de la diagonal principal y antidiagonal.
-
+  
   Parameters
   ----------
   matrix: numpy.ndarray
     arreglo 2D de numpy de 5x5.
-
+    
   Precondition
   ------------
     - matrix.shape == (5, 5)
-
-  Examples
-  --------
-  >>> matrix_diagonals(np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))
-  (array([ 1,  7, 13, 19, 25]), array([ 5,  9, 13, 17, 21]))
   '''
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
-  return matrix.diagonal(), np.fliplr(matrix).diagonal()
+  return (matrix.diagonal(), np.fliplr(matrix).diagonal())
 
-matrix_diagonals(np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))
-
-"""# Test"""
-
-import doctest
-doctest.testmod()
+matrix_diagonals(np.arange(1, 26).reshape(5, 5))
