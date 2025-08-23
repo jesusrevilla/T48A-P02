@@ -19,6 +19,8 @@ import numpy as np
 """
 
 def rand_int():
+    return np.random.randint(0, 101, 10)
+
   '''Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
@@ -34,12 +36,13 @@ def rand_int():
   >>> rand_int()
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
-  return np.random.randint(0, 100, 10)
-
+  
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
+    np.random.seed(42)
+    return np.random.rand(5)
   '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
@@ -57,9 +60,12 @@ def rand_float():
   '''
 
 
+
 """3. Create a NumPy array of the first 10 prime numbers."""
 
 def first_10_primes():
+    prime_array = np.array([2,3,5,7,11,13,17,19,23,29])
+    pritn(prime_array)
   '''Crea un arreglo de numpy con los diez primeros números primos.
 
   Returns
@@ -72,16 +78,26 @@ def first_10_primes():
   >>> first_10_primes()
   array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
   '''
-
+    
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
+    numbers=np.arange(1,11)
+    square=mumbers**2
+    print(square)
+    
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
+   
+
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
+    numbers=np.arange(1,11)
+    square=numbers**3
+    print(numbers)
+    print(square)
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
 
@@ -91,6 +107,9 @@ def cubes():
 """
 
 def add_arrays(arr1, arr2):
+    array1 = np.array(1,2,3)
+    array2 = np.array(4,5,6)
+    
   '''Regresa la suma de dos arreglos de numpy.
 
   Returns
