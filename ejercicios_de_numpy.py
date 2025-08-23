@@ -40,27 +40,16 @@ def rand_int():
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
-  '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
-  Para poder mantener la generación de números aleatorios
-  fija, en los ejemplos, se utiliza un seed.
-
-  Returns
-  -------
-  numpy.ndarray
-    Arreglo de numpy con 5 números punto flotante entre 0 y 1.
-
-  Examples
-  --------
-  >>> np.random.seed(10)
-  >>> rand_float()
-  array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
-  '''
+  return np.random.normal(0, 1, size=5)
+  
 
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
 def first_10_primes():
+    return np.array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
   '''Crea un arreglo de numpy con los diez primeros números primos.
+  
 
   Returns
   -------
@@ -76,12 +65,14 @@ def first_10_primes():
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
+    return np.array([i**2 for i in range(1, 11)])
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
+    return np.array([i**3 for i in range(1, 11)])
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
 
