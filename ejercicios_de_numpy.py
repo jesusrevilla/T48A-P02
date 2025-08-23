@@ -40,6 +40,10 @@ def rand_int():
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
+    np.random.seed(10)
+    return np.random.rand(5)
+rand_float()
+    
   '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
@@ -76,22 +80,30 @@ def first_10_primes():
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
-  '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
-  '''
+    array = np.arange(1,11)
+    array2= array**2
+    return array2
+squares()
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
-  '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
-  '''
-
+    array = np.arange(1,11)
+    array2= array**3
+    return array2
+cubes()
 """### NumPy Array Operations
 
 1. Add two NumPy arrays together.
 """
 
+arr1= np.arange(1,11)
+arr2= np.arange(11,21)
 def add_arrays(arr1, arr2):
-  '''Regresa la suma de dos arreglos de numpy.
+    array=arr1+arr2
+    return array
+
+add_arrays(arr1,arr2)
 
   Returns
   -------
