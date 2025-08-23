@@ -11,10 +11,9 @@ Original file is located at
 ## Sigue las instrucciones para cada celda y al final baja la libreta en formato .py y subelo al repositorio que se te indique, no modifiques el nombre la de función, solo importa una vez numpy en el código.
 """
 
-import numpy as np
+import numpy as np 
 
 """### NumPy Arrays
-
 1. Create a NumPy array of 10 random integers between 0 and 100.
 """
 
