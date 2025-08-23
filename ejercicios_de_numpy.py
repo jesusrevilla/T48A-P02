@@ -55,6 +55,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
+    return np.random.rand(5)
 
 
 """3. Create a NumPy array of the first 10 prime numbers."""
@@ -72,12 +73,28 @@ def first_10_primes():
   >>> first_10_primes()
   array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
   '''
+  primes = []
+  num = 2
+  while len(primes) < 10:
+        # Verificar si num es primo
+        is_prime = True
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(num)
+        num += 1
+  return np.array(primes)
+
 
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
+    numbers = np.arange(1, 11)
+    return numbers ** 2
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
