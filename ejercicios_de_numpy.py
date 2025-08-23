@@ -55,7 +55,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-
+  return np.linspace(0, 1, 5)
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -72,19 +72,24 @@ def first_10_primes():
   >>> first_10_primes()
   array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
   '''
+  return np.array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
 
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
-
+  x = np.arange(1, 11)
+  return np.square(x)
+  
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
-
+  x = np.arange(1, 11)
+  return np.power(x, 3)
+    
 """### NumPy Array Operations
 
 1. Add two NumPy arrays together.
@@ -118,18 +123,31 @@ def add_arrays(arr1, arr2):
   array([5, 7, 9])
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+  return arr1 + arr2
 
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+  return arr1 - arr2
+    
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+subtract_arrays(arr1, arr2)
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
 def multiply_arrays(arr1, arr2):
   '''Multiplica dos arreglos de numpy elemento por elemento.
   '''
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+  return arr1 * arr2
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+multiply_arrays(arr1, arr2)
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
@@ -141,6 +159,11 @@ def divide_arrays(arr1, arr2):
     - arr2.any(0)
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
+  return arr1 / arr2
+
+arr1 = np.array([1, 2, 3])
+arr2.any(0)
+divide_arrays(arr1, arr2)
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
