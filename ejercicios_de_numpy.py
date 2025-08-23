@@ -55,7 +55,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-
+return np.random.rand(5)
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -72,21 +72,20 @@ def first_10_primes():
   >>> first_10_primes()
   array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
   '''
-
+return np.array([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
-
+return np.arange(1, 11) ** 2
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
-
+return np.arange(1, 11) ** 3
 """### NumPy Array Operations
-
 1. Add two NumPy arrays together.
 """
 
@@ -118,19 +117,21 @@ def add_arrays(arr1, arr2):
   array([5, 7, 9])
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
-
+  return arr1 + arr2
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
-
+  assert arr1.shape == arr2.shape, 
+  return arr2 - arr1
 """3. Multiply two NumPy arrays together (element-wise)."""
 
 def multiply_arrays(arr1, arr2):
   '''Multiplica dos arreglos de numpy elemento por elemento.
   '''
-
+  assert arr1.shape == arr2.shape, 
+  return arr1 * arr2
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
 def divide_arrays(arr1, arr2):
@@ -141,6 +142,9 @@ def divide_arrays(arr1, arr2):
     - arr2.any(0)
   '''
   assert arr1.any(0), 'No se puede dividir por cero'
+  if np.any(arr1 == 0):
+    raise ZeroDivisionError("No se puede dividir entre cero en arr1")
+  return arr1 / arr2
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
@@ -163,7 +167,10 @@ def stats(arr):
     - arr.size == 5
   '''
   assert arr.size == 5, 'El arreglo debe tener 5 elementos'
-
+  mean = float(np.mean(arr))
+  median = float(np.median(arr))
+  std = float(np.std(arr, ddof=0))  
+  return (mean, median, std)
 """### NumPy Array Indexing and Slicing
 
 1. Create a NumPy array of 10 random integers between 0 and 100. Select the first 5 elements of the array.
@@ -183,7 +190,7 @@ def first_5(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-
+  return arr[:5]
 """2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
 
 def last_3(arr):
@@ -200,7 +207,7 @@ def last_3(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-
+  return arr[-3:]
 """3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
 
 def indices_2_4_6(arr):
@@ -217,7 +224,7 @@ def indices_2_4_6(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-
+  return arr[[2, 4, 6]]
 """4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
 
 def greater_50(arr):
@@ -234,7 +241,7 @@ def greater_50(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-
+  return arr[arr > 50]
 """5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
 
 def less_7(arr):
@@ -251,7 +258,7 @@ def less_7(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
-
+  return arr[arr <= 7]
 """### NumPy Array Reshaping
 
 1. Create a NumPy array of 12 numbers. Reshape the array into a 2x6 matrix.
@@ -286,7 +293,7 @@ def reshape_2x3x4(arr):
     - arr.size == 24
   '''
   assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
-
+  return arr.reshape(2, 6)
 """3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
 
 def reshape_10x10(arr):
@@ -302,7 +309,7 @@ def reshape_10x10(arr):
     - arr.size == 100
   '''
   assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
-
+  return arr.reshape(10, 10)
 """4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
 
 def reshape_10x10x10(arr):
@@ -319,7 +326,7 @@ def reshape_10x10x10(arr):
     - arr.size == 1000
   '''
   assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
-
+  return arr.reshape(10, 10, 10)
 """5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
 
 def reshape_10x10x10x10(arr):
@@ -336,7 +343,7 @@ def reshape_10x10x10x10(arr):
     - arr.size == 10000
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
-
+  return arr.reshape(10, 10, 10, 10)
 """### NumPy Array Broadcasting
 
 1. Add a NumPy array of shape (2, 3) to a NumPy array of shape (2, 1).
@@ -352,7 +359,9 @@ def add_broadcast(arr1, arr2):
   arr2: numpy.nd.array
     arreglo de numpy de forma (2, 1).
   '''
-
+  assert arr1.shape(2, 3),
+  assert arr2.shape(2, 1),
+  return arr1 + arr2
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
 
 def subtract_broadcast(arr1, arr2):
@@ -366,7 +375,9 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-
+  assert arr1.shape(3, 2),
+  assert arr2.shape(2, 3),
+  return arr2 - arr1.T
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
 def multiply_broadcast(arr1, arr2):
@@ -379,7 +390,9 @@ def multiply_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (3, 2).
   '''
-
+  assert arr1.shape(2, 3),
+  assert arr2.shape(3, 2),
+  return arr1 @ arr2
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
 
 def divide_broadcast(arr1, arr2):
@@ -392,7 +405,11 @@ def divide_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 1).
   '''
-
+  assert arr1.shape(2, 3),
+  assert arr2.shape(2, 1),
+  if np.any(arr2 == 0):
+    raise ZeroDivisionError("No se puede dividir entre cero en arr2")
+  return arr1 / arr2
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
 
 def element_wise_product(arr1, arr2):
@@ -405,7 +422,9 @@ def element_wise_product(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-
+  assert arr1.shape == (2, 3), 
+  assert arr2.shape == (2, 3), 
+  return arr1 * arr2
 """### Boolean Arrays and Masks
 
 1. Temperature Data: You have a 1D NumPy array representing daily temperatures in Celsius.  Create a boolean mask that identifies days where the temperature was above 25 degrees Celsius.  Use this mask to print the temperatures on those days.  Also, calculate and print the number of days the temperature was below 15 degrees Celsius.
