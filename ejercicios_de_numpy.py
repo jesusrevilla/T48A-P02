@@ -78,10 +78,10 @@ def stats(arr):
 arr = np.array([5, 6, 7, 8, 8])
 print(stats(arr))
 
-def frist_5(arr):
+def first_5(arr):
     assert arr.size == 10
     return arr[:5]
 
 np.random.seed(10)
 arr = np.random.rand(10)
-print(frist_5(arr))
+print(first_5(arr))
