@@ -191,13 +191,13 @@ def temp_data(temps):
     print(f"Número de días con temperatura menor a 15 grados: {count_below_15}")
     return temps_above_25, count_below_15
 
-def rainfall_data():
-    rainfall = np.array([50, 120, 80, 150, 90, 200, 30, 60, 110, 70])
+def rainfall_data(rainfall):
+    import numpy as np
 
+    # Índices donde la lluvia es mayor a 100
     indices = np.where(rainfall > 100)[0]
 
-    # Forzar el formato exacto que espera el test
-    print("Índices de las ciudades con más de 100 mm de lluvia:", np.array2string(indices, separator=' '))
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices}")
 
 
 def image_thresholding(image, threshold=128):
