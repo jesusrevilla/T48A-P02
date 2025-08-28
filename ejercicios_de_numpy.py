@@ -192,14 +192,19 @@ def temp_data(temps):
     return temps_above_25, count_below_15
 
 def rainfall_data(rainfall):
+    """
+    Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
+    Formato exacto requerido por las pruebas:
+    "Índices de las ciudades con más de 100 mm de lluvia: [1 3 5 8]"
+    """
     rainfall = np.asarray(rainfall)
     if rainfall.ndim != 2:
         raise AssertionError('El arreglo rainfall debe ser 2D (ciudades x meses)')
     mask_any_over_100 = np.any(rainfall > 100, axis=1)
     city_indices = np.where(mask_any_over_100)[0]
-    # Formatear EXACTAMENTE como [1 3 5 8] (espacios, sin comas)
-    indices_str = '[' + ' '.join(map(str, city_indices.tolist())) + ']'
-    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_str}")
+    # Construir el string exactamente como lo espera la prueba: espacio entre números, sin comas
+    indices_str = '[' + ' '.join(str(int(x)) for x in city_indices.tolist()) + ']'
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_str}", flush=True)
     return city_indices
 
 def image_thresholding(image, threshold=128):
