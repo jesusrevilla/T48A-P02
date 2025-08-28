@@ -191,40 +191,33 @@ def temp_data(temps):
     print(f"Número de días con temperatura menor a 15 grados: {count_below_15}")
     return temps_above_25, count_below_15
 
-import sys
 import unicodedata
 
 def rainfall_data(rainfall):
     """
     Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia.
-    Esta versión imprime la línea EXACTA esperada por las pruebas de 3 maneras
-    para evitar problemas de captura de salida del runner.
     """
     rainfall = np.asarray(rainfall)
     if rainfall.ndim != 2:
         raise AssertionError('El arreglo rainfall debe ser 2D (ciudades x meses)')
+    
+    # ciudades con lluvia > 100 mm
     mask_any_over_100 = np.any(rainfall > 100, axis=1)
     city_indices = np.where(mask_any_over_100)[0]
 
-    # Formato exacto: espacio entre números, sin comas -> "[1 3 5 8]"
-    indices_str = '[' + ' '.join(str(int(x)) for x in city_indices.tolist()) + ']'
+    # Convertir a formato "[1 3 5]" (sin comas, con espacios)
+    indices_str = '[' + ' '.join(map(str, city_indices.tolist())) + ']'
 
-    # Normalizar la cadena a NFC (por si acaso hay diferencias de codificación)
+    # Normalizar texto (por si las pruebas usan unicode estricto)
     header = 'Índices de las ciudades con más de 100 mm de lluvia: '
     header = unicodedata.normalize('NFC', header)
     indices_str = unicodedata.normalize('NFC', indices_str)
 
-    # 1) print normal (con flush)
-    print(f"{header}{indices_str}", flush=True)
-
-    # 2) escribir directamente a stdout (sin newline añadido extra)
-    sys.stdout.write(f"{header}{indices_str}\n")
-    sys.stdout.flush()
-
-    # 3) print con el array numpy (por si la prueba capta ese formato)
-    print(f"{header}{city_indices}", flush=True)
+    # Solo una impresión, en el formato exacto
+    print(f"{header}{indices_str}")
 
     return city_indices
+
 
 def image_thresholding(image, threshold=128):
     image = np.asarray(image)
