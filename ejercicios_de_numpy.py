@@ -194,10 +194,11 @@ def temp_data(temps):
 def rainfall_data(rainfall):
     import numpy as np
 
-    # Índices donde la lluvia es mayor a 100
     indices = np.where(rainfall > 100)[0]
 
-    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices}")
+    # Convierte a string como espera la prueba
+    indices_str = np.array2string(indices, separator=' ', max_line_width=np.inf)
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_str}")
 
 
 def image_thresholding(image, threshold=128):
