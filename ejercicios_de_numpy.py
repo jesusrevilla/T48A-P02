@@ -63,7 +63,29 @@ rand_float()
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
-def first_10_primes():
+def first_10_primes(k):
+    if k < 1:
+        return np.array([], dtype=int)
+    if k < 6:
+        limite = 15
+    else:
+        limite = int(k * (np.log(k) + np.log(np.log(k)))) + 10
+
+    while True:
+        es_primo = np.ones(limite + 1, dtype=bool)
+        es_primo[:2] = False
+
+        for i in range(2, int(limite**0.5) + 1):
+            if es_primo[i]:
+                es_primo[i*i:limite+1:i] = False
+
+        primos = np.nonzero(es_primo)[0]
+
+        if len(primos) >= k:
+            return primos[:k]
+        limite *= 2
+
+print(first_10_primes(10))
   '''Crea un arreglo de numpy con los diez primeros números primos.
 
   Returns
@@ -105,76 +127,47 @@ def add_arrays(arr1, arr2):
 
 add_arrays(arr1,arr2)
 
-  Returns
-  -------
-  numpy.ndarray
-    Suma de dos arreglos NumPy con el mismo tamaño.
-
-  Parameters
-  ----------
-  arr1: numpy.ndarray
-  arr2: numpy.ndarray
-
-  Precondition
-  ------------
-    - arr1.shape == arr2.shape
-
-  Examples
-  --------
-  >>> add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-  array([5, 7, 9])
-
-  >>> arr1 = np.array([1, 2, 3])
-  >>> arr2 = np.array([4, 5, 6])
-  >>> add_arrays(arr1, arr2)
-  array([5, 7, 9])
-  '''
-  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
 
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
-  '''Calcula arr2 menos arr1 (arreglos de numpy).
-  '''
+    array=arr2-arr1
+    return array
+
+subtract_arrays(arr1, arr2)
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
 def multiply_arrays(arr1, arr2):
+    array=arr2*arr1
+    return array
+
+multiply_arrays(arr1, arr2)
   '''Multiplica dos arreglos de numpy elemento por elemento.
   '''
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
-def divide_arrays(arr1, arr2):
-  '''Divide arr2 antre arr1 (arreglos de numpy).
+arr3 = np.array([2,2,2,2,2,2,2,2,2,2])
+arr4 = np.array([10,2, 18, 16, 8, 8, 16, 18, 2, 10])
+def multiply_arrays(arr3, arr4):
+    array=arr4/arr3
+    return array
 
-  Precondition
-  ------------
-    - arr2.any(0)
-  '''
-  assert arr1.any(0), 'No se puede dividir por cero'
+multiply_arrays(arr3, arr4)
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
 def stats(arr):
-  '''Calcula la media, la mediana y la desviación estándar de un arreglo de numpy
-  en un tuple con las siguientes posiciones: (media, mediana, desviacion_std).
+    media = np.mean(arr)
+    mediana = np.median(arr)
+    desviacion_std = np.std(arr)
 
-  Returns
-  -------
-  tuple
-    Tuple con las siguientes posiciones: (media, mediana, desviacion_std).
+    return (media, mediana, desviacion_std)
 
-  Parameters
-  ----------
-  arr: numpy.ndarray
-    arreglo de numpy de los números de 1 a 5.
 
-  Precondition
-  ------------
-    - arr.size == 5
-  '''
-  assert arr.size == 5, 'El arreglo debe tener 5 elementos'
+arr = np.array([5, 1, 9, 8, 4, 4, 8, 9, 1, 5])
+print(estadisticas(arr))
 
 """### NumPy Array Indexing and Slicing
 
@@ -182,17 +175,13 @@ def stats(arr):
 """
 
 def first_5(arr):
-  '''Regresa los primeros 5 elementos de un arr (arreglo) que contiene 10 números
-  aleatoreos enteros entre 0 y 100.
+    return arr[:5]
 
-  Parameters
-  ----------
-  arr: numpy.ndarray
-    arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
 
-  Precondition
-  ------------
-    - arr.size == 10
+arr = np.random.randint(0, 101, size=10)
+print("Arreglo completo:", arr)
+print("Primeros 5:", first_5(arr))
+
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
 
