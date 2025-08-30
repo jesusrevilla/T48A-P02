@@ -913,3 +913,70 @@ def temp_data(temps):
   # Calculamos y mostramos el número de días con temperaturas menores a 15°C
   below_15_count = np.sum(below_15_mask)
   print("Número de días con temperaturas menores a 15°C:", below_15_count)
+
+"""2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
+
+def rainfall_data(rainfall):
+  '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia en algún mes.
+
+  Parameters
+  ----------
+  rainfall: numpy.ndarray
+    Arreglo 2D de numpy con la lluvia mensual (en mm) para diferentes ciudades.
+  '''
+  # Máscara booleana que indica si hubo más de 100 mm de lluvia en algún mes
+  cities_with_heavy_rain = np.any(rainfall > 100, axis=1)
+  
+  # Imprime los índices de las ciudades que cumplen con la condición
+  city_indices = np.where(cities_with_heavy_rain)[0]
+  print("Índices de las ciudades con más de 100 mm de lluvia en algún mes:", city_indices)
+
+"""3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
+
+def image_thresholding(image):
+  '''Genera un arreglo de numpy en blanco y negro (umbralización de imagen).
+
+  Parameters
+  ----------
+  image: numpy.ndarray
+    Arreglo 2D de numpy representando una imagen en escala de grises.
+  '''
+  # Umbral para seleccionar los píxeles
+  threshold = 128
+  
+  # Crear la máscara booleana para píxeles mayores que el umbral
+  mask = image > threshold
+  
+  # Crear la imagen binaria: 255 para píxeles mayores que el umbral, 0 para los demás
+  binary_image = np.where(mask, 255, 0)
+  
+  return binary_image
+
+"""### Fancy Indexing
+
+1. Matrix Diagonals: Create a 5x5 matrix with values from 1 to 25.  Use fancy indexing to extract the elements on the main diagonal and the elements on the anti-diagonal.
+"""
+
+def matrix_diagonals(matrix):
+  '''Regresa un tuple con los elementos de la diagonal principal y antidiagonal.
+
+  Parameters
+  ----------
+  matrix: numpy.ndarray
+    Arreglo 2D de numpy de 5x5.
+
+  Precondition
+  ------------
+    - matrix.shape == (5, 5)
+  '''
+  assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
+  
+  # Extraer la diagonal principal
+  diagonal_principal = matrix[np.arange(5), np.arange(5)]
+  
+  # Extraer la antidiagonal
+  antidiagonal = matrix[np.arange(5), 4 - np.arange(5)]
+  
+  return diagonal_principal, antidiagonal
+
+"""# Test"""
