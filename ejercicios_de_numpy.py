@@ -122,3 +122,201 @@ def cubes():
   array([  1,   8,  27,  64, 125, 216, 343, 512, 729, 1000])
   '''
   return np.array([i**3 for i in range(1, 11)])
+
+"""### NumPy Array Operations
+
+1. Add two NumPy arrays together.
+"""
+
+def add_arrays(arr1, arr2):
+  '''Regresa la suma de dos arreglos de numpy.
+
+  Returns
+  -------
+  numpy.ndarray
+    Suma de dos arreglos NumPy con el mismo tamaño.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Primer arreglo de numpy.
+  arr2: numpy.ndarray
+    Segundo arreglo de numpy.
+
+  Precondition
+  ------------
+    - arr1.shape == arr2.shape
+    - Los dos arreglos deben tener la misma forma.
+
+  Examples
+  --------
+  >>> add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+  array([5, 7, 9])
+
+  >>> arr1 = np.array([1, 2, 3])
+  >>> arr2 = np.array([4, 5, 6])
+  >>> add_arrays(arr1, arr2)
+  array([5, 7, 9])
+  '''
+  # Verifica que los arreglos tengan el mismo tamaño
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+
+  # Realiza la suma elemento a elemento de los dos arreglos
+  return arr1 + arr2
+
+"""2. Subtract two NumPy arrays from each other, second argument less first."""
+
+def subtract_arrays(arr1, arr2):
+  '''Calcula arr2 menos arr1 (arreglos de numpy).
+
+  Returns
+  -------
+  numpy.ndarray
+    La resta de dos arreglos NumPy, donde arr2 es el minuendo y arr1 es el sustraendo.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Primer arreglo de numpy (sustraendo).
+  arr2: numpy.ndarray
+    Segundo arreglo de numpy (minuendo).
+
+  Precondition
+  ------------
+    - arr1.shape == arr2.shape
+    - Los dos arreglos deben tener la misma forma.
+
+  Examples
+  --------
+  >>> subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+  array([3, 3, 3])
+
+  >>> arr1 = np.array([1, 2, 3])
+  >>> arr2 = np.array([4, 5, 6])
+  >>> subtract_arrays(arr1, arr2)
+  array([3, 3, 3])
+  '''
+  # Verifica que los arreglos tengan el mismo tamaño
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+
+  # Realiza la resta: arr2 - arr1
+  return arr2 - arr1
+
+"""3. Multiply two NumPy arrays together (element-wise)."""
+
+def multiply_arrays(arr1, arr2):
+  '''Multiplica dos arreglos de numpy elemento por elemento.
+
+  Returns
+  -------
+  numpy.ndarray
+    La multiplicación elemento a elemento de arr1 y arr2.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Primer arreglo de numpy.
+  arr2: numpy.ndarray
+    Segundo arreglo de numpy.
+
+  Precondition
+  ------------
+    - arr1.shape == arr2.shape
+    - Los dos arreglos deben tener la misma forma.
+
+  Examples
+  --------
+  >>> multiply_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+  array([ 4, 10, 18])
+
+  >>> arr1 = np.array([1, 2, 3])
+  >>> arr2 = np.array([4, 5, 6])
+  >>> multiply_arrays(arr1, arr2)
+  array([ 4, 10, 18])
+  '''
+  # Verifica que los arreglos tengan el mismo tamaño
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+
+  # Realiza la multiplicación elemento por elemento
+  return arr1 * arr2
+
+"""4. Divide two NumPy arrays by each other (element-wise)."""
+
+def divide_arrays(arr1, arr2):
+  '''Divide arr2 entre arr1 (arreglos de numpy), elemento por elemento.
+
+  Returns
+  -------
+  numpy.ndarray
+    La división elemento a elemento de arr2 entre arr1.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Primer arreglo de numpy (divisor).
+  arr2: numpy.ndarray
+    Segundo arreglo de numpy (dividendo).
+
+  Precondition
+  ------------
+    - arr1 no debe tener ceros, para evitar divisiones por cero.
+    
+  Examples
+  --------
+  >>> divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+  array([4. , 2.5, 2. ])
+
+  >>> arr1 = np.array([1, 2, 3])
+  >>> arr2 = np.array([4, 5, 6])
+  >>> divide_arrays(arr2, arr1)
+  array([4. , 2.5, 2. ])
+  '''
+  # Verifica que arr1 no contenga ceros, para evitar divisiones por cero
+  assert not np.any(arr1 == 0), 'No se puede dividir por cero'
+
+  # Realiza la división: arr2 / arr1 (elemento por elemento)
+  return arr2 / arr1
+
+def stats(arr):
+  '''Calcula la media, la mediana y la desviación estándar de un arreglo de numpy
+  en un tuple con las siguientes posiciones: (media, mediana, desviacion_std).
+
+  Returns
+  -------
+  tuple
+    Tuple con las siguientes posiciones: (media, mediana, desviacion_std).
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy con 5 números.
+
+  Precondition
+  ------------
+    - arr.size == 5
+    - El arreglo debe tener exactamente 5 elementos.
+
+  Examples
+  --------
+  >>> stats(np.array([1, 2, 3, 4, 5]))
+  (3.0, 3.0, 1.4142135623730951)
+
+  >>> arr = np.array([10, 20, 30, 40, 50])
+  >>> stats(arr)
+  (30.0, 30.0, 15.811388300841896)
+  '''
+  # Verifica que el arreglo tenga exactamente 5 elementos
+  assert arr.size == 5, 'El arreglo debe tener 5 elementos'
+
+  # Calcula la media, mediana y desviación estándar
+  mean = np.mean(arr)
+  median = np.median(arr)
+  std_dev = np.std(arr)
+
+  # Devuelve los resultados en un tuple
+  return (mean, median, std_dev)
+
+"""### NumPy Array Indexing and Slicing
+
+1. Create a NumPy array of 10 random integers between 0 and 100. Select the first 5 elements of the array.
+"""
