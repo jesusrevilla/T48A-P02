@@ -503,3 +503,215 @@ def less_7(arr):
 
 1. Create a NumPy array of 12 numbers. Reshape the array into a 2x6 matrix.
 """
+
+def reshape_2x6(arr):
+  '''Regresa un arreglo de numpy con 12 números y lo convierte en un arreglo de 2x6.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo de numpy con la forma 2x6.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy con 12 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 12
+
+  Examples
+  --------
+  >>> arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+  >>> reshape_2x6(arr)
+  array([[ 1,  2,  3,  4,  5,  6],
+         [ 7,  8,  9, 10, 11, 12]])
+
+  >>> arr = np.random.randint(0, 100, 12)
+  >>> reshape_2x6(arr)
+  array([[56, 23, 45, 67, 89, 12],
+         [34, 56, 78, 90, 21, 65]])
+  '''
+  # Verifica que el arreglo tenga exactamente 12 elementos
+  assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
+
+  # Reshape del arreglo a una matriz 2x6
+  return arr.reshape(2, 6)
+
+"""2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
+
+def reshape_2x3x4(arr):
+  '''Convierte un arreglo de numpy con 24 números en un arreglo de 2x3x4.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo de numpy con la forma 2x3x4.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy con 24 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 24
+
+  Examples
+  --------
+  >>> arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24])
+  >>> reshape_2x3x4(arr)
+  array([[[ 1,  2,  3,  4],
+          [ 5,  6,  7,  8],
+          [ 9, 10, 11, 12]],
+  
+         [[13, 14, 15, 16],
+          [17, 18, 19, 20],
+          [21, 22, 23, 24]]])
+
+  >>> arr = np.random.randint(0, 100, 24)
+  >>> reshape_2x3x4(arr)
+  array([[[ 8, 45, 19, 61],
+          [23, 53, 44, 39],
+          [34, 73, 68, 61]],
+  
+         [[14, 30, 79, 61],
+          [62, 99, 45, 37],
+          [60, 91, 48, 99]]])
+  '''
+  # Verifica que el arreglo tenga exactamente 24 elementos
+  assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
+
+  # Reshape del arreglo a un tensor 2x3x4
+  return arr.reshape(2, 3, 4)
+
+"""3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
+
+def reshape_10x10(arr):
+  '''Convierte un numpy array en un numpy array de 10x10.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo de numpy con la forma 10x10.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy de 100 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 100
+
+  Examples
+  --------
+  >>> arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100])
+  >>> reshape_10x10(arr)
+  array([[  1,   2,   3,   4,   5,   6,   7,   8,   9,  10],
+         [ 11,  12,  13,  14,  15,  16,  17,  18,  19,  20],
+         [ 21,  22,  23,  24,  25,  26,  27,  28,  29,  30],
+         [ 31,  32,  33,  34,  35,  36,  37,  38,  39,  40],
+         [ 41,  42,  43,  44,  45,  46,  47,  48,  49,  50],
+         [ 51,  52,  53,  54,  55,  56,  57,  58,  59,  60],
+         [ 61,  62,  63,  64,  65,  66,  67,  68,  69,  70],
+         [ 71,  72,  73,  74,  75,  76,  77,  78,  79,  80],
+         [ 81,  82,  83,  84,  85,  86,  87,  88,  89,  90],
+         [ 91,  92,  93,  94,  95,  96,  97,  98,  99, 100]])
+  
+  >>> arr = np.random.randint(0, 100, 100)
+  >>> reshape_10x10(arr)
+  array([[56, 23, 45, 67, 89, 12, 34, 56, 78, 90],
+         [21, 65, 43, 12, 65, 78, 90, 23, 12, 34],
+         [56, 99, 45, 23, 61, 72, 38, 91, 50, 19],
+         [33, 18, 22, 47, 85, 94, 71, 66, 39, 30],
+         [67, 48, 85, 67, 56, 92, 10, 84, 29, 42],
+         [60, 39, 50, 12, 47, 92, 74, 56, 78, 23],
+         [45, 39, 21, 30, 90, 67, 76, 92, 54, 65],
+         [10, 39, 65, 74, 54, 61, 12, 34, 71, 88],
+         [73, 56, 39, 14, 12, 94, 50, 30, 11, 67],
+         [85, 77, 66, 55, 44, 33, 22, 91, 12, 47]])
+  '''
+  # Verifica que el arreglo tenga exactamente 100 elementos
+  assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
+
+  # Reshape del arreglo a una matriz 10x10
+  return arr.reshape(10, 10)
+
+"""4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
+
+def reshape_10x10x10(arr):
+  '''(np.ndarray) -> np.ndarray
+  Regresa un arreglo de 10x10x10.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy con 1000 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 1000
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo con la forma 10x10x10.
+
+  Examples
+  --------
+  >>> arr = np.array([i for i in range(1, 1001)])
+  >>> reshape_10x10x10(arr).shape
+  (10, 10, 10)
+
+  >>> arr = np.random.randint(0, 100, 1000)
+  >>> reshape_10x10x10(arr).shape
+  (10, 10, 10)
+  '''
+  # Verifica que el arreglo tenga exactamente 1000 elementos
+  assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
+
+  # Reshape del arreglo a un tensor 10x10x10
+  return arr.reshape(10, 10, 10)
+
+"""5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
+
+def reshape_10x10x10x10(arr):
+  '''(np.ndarray) -> np.ndarray
+  Regresa un arreglo de numpy de 10x10x10x10.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy con 10000 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 10000
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo con la forma 10x10x10x10.
+
+  Examples
+  --------
+  >>> arr = np.array([i for i in range(1, 10001)])
+  >>> reshape_10x10x10x10(arr).shape
+  (10, 10, 10, 10)
+
+  >>> arr = np.random.randint(0, 100, 10000)
+  >>> reshape_10x10x10x10(arr).shape
+  (10, 10, 10, 10)
+  '''
+  # Verifica que el arreglo tenga exactamente 10000 elementos
+  assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
+
+  # Reshape del arreglo a un tensor 10x10x10x10
+  return arr.reshape(10, 10, 10, 10)
+
+"""### NumPy Array Broadcasting
+
+1. Add a NumPy array of shape (2, 3) to a NumPy array of shape (2, 1).
+"""
