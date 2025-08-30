@@ -891,3 +891,25 @@ def element_wise_product(arr1, arr2):
 
 1. Temperature Data: You have a 1D NumPy array representing daily temperatures in Celsius.  Create a boolean mask that identifies days where the temperature was above 25 degrees Celsius.  Use this mask to print the temperatures on those days.  Also, calculate and print the number of days the temperature was below 15 degrees Celsius.
 """
+
+def temp_data(temps):
+  '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
+  días en los que la temperatura fue menor a 15 grados.
+
+  Parameters
+  ----------
+  temps: numpy.ndarray
+    Arreglo de numpy de temperaturas en Celsius.
+  '''
+  # Máscara booleana para días con temperaturas mayores a 25°C
+  above_25_mask = temps > 25
+  
+  # Usamos la máscara para imprimir las temperaturas mayores a 25°C
+  print("Temperaturas mayores a 25°C:", temps[above_25_mask])
+  
+  # Máscara booleana para días con temperaturas menores a 15°C
+  below_15_mask = temps < 15
+  
+  # Calculamos y mostramos el número de días con temperaturas menores a 15°C
+  below_15_count = np.sum(below_15_mask)
+  print("Número de días con temperaturas menores a 15°C:", below_15_count)
