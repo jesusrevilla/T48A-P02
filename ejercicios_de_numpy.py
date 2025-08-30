@@ -715,3 +715,179 @@ def reshape_10x10x10x10(arr):
 
 1. Add a NumPy array of shape (2, 3) to a NumPy array of shape (2, 1).
 """
+
+def add_broadcast(arr1, arr2):
+  '''Suma de dos arreglos de numpy con formas (2, 3) y (2, 1) utilizando broadcasting.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Arreglo de numpy de forma (2, 3).
+  arr2: numpy.ndarray
+    Arreglo de numpy de forma (2, 1).
+
+  Returns
+  -------
+  numpy.ndarray
+    El arreglo resultante de la suma de arr1 y arr2 utilizando broadcasting.
+
+  Examples
+  --------
+  >>> arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+  >>> arr2 = np.array([[1], [2]])
+  >>> add_broadcast(arr1, arr2)
+  array([[2, 3, 4],
+         [6, 7, 8]])
+
+  >>> arr1 = np.array([[10, 20, 30], [40, 50, 60]])
+  >>> arr2 = np.array([[5], [10]])
+  >>> add_broadcast(arr1, arr2)
+  array([[15, 25, 35],
+         [50, 60, 70]])
+  '''
+  # Suma de los arreglos utilizando broadcasting
+  return arr1 + arr2
+
+"""2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
+
+def subtract_broadcast(arr1, arr2):
+  '''(np.ndarray, np.ndarray) -> np.ndarray
+  Regresa la resta de dos arreglos de numpy con formas (3, 2) y (2, 3) utilizando broadcasting.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Arreglo de numpy de forma (3, 2).
+  arr2: numpy.ndarray
+    Arreglo de numpy de forma (2, 3).
+
+  Returns
+  -------
+  numpy.ndarray
+    El arreglo resultante de la resta de arr1 y arr2 utilizando broadcasting.
+
+  Examples
+  --------
+  >>> arr1 = np.array([[1, 2], [3, 4], [5, 6]])
+  >>> arr2 = np.array([[10, 20, 30], [40, 50, 60]])
+  >>> subtract_broadcast(arr1, arr2)
+  array([[-9, -18, -27],
+         [-37, -46, -55],
+         [-35, -44, -53]])
+
+  >>> arr1 = np.array([[2, 4], [6, 8], [10, 12]])
+  >>> arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+  >>> subtract_broadcast(arr1, arr2)
+  array([[ 1,  2,  3],
+         [ 2,  3,  4],
+         [ 6,  7,  8]])
+  '''
+  # Resta de los arreglos utilizando broadcasting
+  return arr1 - arr2
+
+"""3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
+
+def multiply_broadcast(arr1, arr2):
+  '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2) utilizando broadcasting.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Arreglo de numpy de forma (2, 3).
+  arr2: numpy.ndarray
+    Arreglo de numpy de forma (3, 2).
+
+  Returns
+  -------
+  numpy.ndarray
+    El arreglo resultante de la multiplicación de arr1 y arr2 utilizando broadcasting.
+
+  Examples
+  --------
+  >>> arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+  >>> arr2 = np.array([[7, 8], [9, 10], [11, 12]])
+  >>> multiply_broadcast(arr1, arr2)
+  array([[ 58,  64],
+         [139, 154]])
+
+  >>> arr1 = np.array([[2, 3, 4], [5, 6, 7]])
+  >>> arr2 = np.array([[1, 2], [3, 4], [5, 6]])
+  >>> multiply_broadcast(arr1, arr2)
+  array([[ 35,  44],
+         [ 75,  94]])
+  '''
+  # Multiplicación de los arreglos utilizando broadcasting
+  return np.dot(arr1, arr2)
+
+"""4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
+
+def divide_broadcast(arr1, arr2):
+  '''Divide dos arreglos de numpy con formas (2, 3) y (2, 1) utilizando broadcasting.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Arreglo de numpy de forma (2, 3).
+  arr2: numpy.ndarray
+    Arreglo de numpy de forma (2, 1).
+
+  Returns
+  -------
+  numpy.ndarray
+    El arreglo resultante de la división de arr1 entre arr2 utilizando broadcasting.
+
+  Examples
+  --------
+  >>> arr1 = np.array([[10, 20, 30], [40, 50, 60]])
+  >>> arr2 = np.array([[2], [5]])
+  >>> divide_broadcast(arr1, arr2)
+  array([[ 5., 10., 15.],
+         [ 8., 10., 12.]])
+  
+  >>> arr1 = np.array([[4, 8, 12], [6, 9, 18]])
+  >>> arr2 = np.array([[2], [3]])
+  >>> divide_broadcast(arr1, arr2)
+  array([[2., 4., 6.],
+         [2., 3., 6.]])
+  '''
+  # División de los arreglos utilizando broadcasting
+  return arr1 / arr2
+
+"""5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
+
+def element_wise_product(arr1, arr2):
+  '''Multiplica elemento a elemento dos arreglos de numpy con formas (2, 3).
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    Arreglo de numpy de forma (2, 3).
+  arr2: numpy.ndarray
+    Arreglo de numpy de forma (2, 3).
+
+  Returns
+  -------
+  numpy.ndarray
+    El arreglo resultante de la multiplicación elemento a elemento.
+
+  Examples
+  --------
+  >>> arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+  >>> arr2 = np.array([[7, 8, 9], [10, 11, 12]])
+  >>> element_wise_product(arr1, arr2)
+  array([[ 7, 16, 27],
+         [40, 55, 72]])
+  
+  >>> arr1 = np.array([[2, 3, 4], [5, 6, 7]])
+  >>> arr2 = np.array([[1, 2, 3], [4, 5, 6]])
+  >>> element_wise_product(arr1, arr2)
+  array([[ 2,  6, 12],
+         [20, 30, 42]])
+  '''
+  # Producto elemento a elemento de los arreglos
+  return arr1 * arr2
+
+"""### Boolean Arrays and Masks
+
+1. Temperature Data: You have a 1D NumPy array representing daily temperatures in Celsius.  Create a boolean mask that identifies days where the temperature was above 25 degrees Celsius.  Use this mask to print the temperatures on those days.  Also, calculate and print the number of days the temperature was below 15 degrees Celsius.
+"""
