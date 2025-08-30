@@ -174,21 +174,24 @@ print(estadisticas(arr))
 1. Create a NumPy array of 10 random integers between 0 and 100. Select the first 5 elements of the array.
 """
 
-def first_5(arr):
-    return arr[:5]
+def first_5(arr): 
+    return arr[:5] 
 
-
-arr = np.random.randint(0, 101, size=10)
-print("Arreglo completo:", arr)
+arr = arr=np.random.randint(0, 101, size=10) 
+print("Arreglo:", arr)
 print("Primeros 5:", first_5(arr))
 
-  '''
-  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+
 
 """2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
+def last_3(arr): 
+    return arr[-3:] 
 
-def last_3(arr):
-  '''Regresa los últimos 3 elementos de un arr (arreglo) de numpy que contiene 10
+arr = arr=np.random.randint(0, 101, size=10) 
+print("Arreglo:", arr)
+print("Ultimos 3:", last_3(arr))
+
+  """Regresa los últimos 3 elementos de un arr (arreglo) de numpy que contiene 10
   números enteros aleatoreos entre 0 y 100.
 
   Parameters
@@ -199,12 +202,17 @@ def last_3(arr):
   Precondition
   ------------
     - arr.size == 10
-  '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
 
-"""3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
-
+"""
 def indices_2_4_6(arr):
+   
+    return arr[[2, 4, 6]]
+
+arr = np.random.randint(0, 101, size=10)
+print("Arreglo:", arr)
+print("Elementos en los índices 2, 4 y 6:", indices_2_4_6(arr))
+"""
   '''Regresa los elementos en los índices 2, 4 y 6 de un arr (arreglo) que contiene
   10 números enteros aleatoreos entre 0 y 100.
 
@@ -219,9 +227,16 @@ def indices_2_4_6(arr):
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
 
-"""4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
-
+"""
 def greater_50(arr):
+   
+    return arr[arr > 50]
+
+arr = np.random.randint(0, 101, size=10)
+print("Arreglo:", arr)
+print("Elementos en los índices 2, 4 y 6:", greater_50(arr))
+"""
+
   '''Regresa los elementos del arr (arreglo) que contiene 10 números enteros
   aleatoreos entre 0 y 100 que son mayores a 50.
 
@@ -236,7 +251,15 @@ def greater_50(arr):
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
 
-"""5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
+"""
+def less_7(arr):
+   
+    return arr[arr <= 7]
+
+arr = np.random.randint(0, 101, size=10)
+print("Arreglo:", arr)
+print("Elementos en los índices 2, 4 y 6:", less_7(arr))
+"""
 
 def less_7(arr):
   '''Regresa los elementos del arr (arreglo) que contiene 10 números enteros
@@ -252,10 +275,18 @@ def less_7(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
+### NumPy Array Reshaping
+"""
+def reshape_2x6(arr):
+    return arr.reshape(2, 6)
+    
+arr = np.random.randint(0, 101, size=12)
 
-"""### NumPy Array Reshaping
 
-1. Create a NumPy array of 12 numbers. Reshape the array into a 2x6 matrix.
+reshaped_arr = reshape_2x6(arr)
+print("Arreglo original:", arr)
+print("Arreglo reshaped 2x6:")
+print(reshaped_arr)
 """
 
 def reshape_2x6(arr):
@@ -269,10 +300,21 @@ def reshape_2x6(arr):
   Precondition
   ------------
     - arr.size == 12
-  '''
+
   assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
 
-"""2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
+"""
+def reshape_2x3x4(arr):
+    return arr.reshape(2, 3,4)
+    
+arr = np.random.randint(0, 101, size=24)
+
+
+reshaped_arr = reshape_2x3x4(arr)
+print("Arreglo original:", arr)
+print("Arreglo reshaped 2x3x4:")
+print(reshaped_arr)
+"""
 
 def reshape_2x3x4(arr):
   '''Conviert un arreglo de numpy con 24 números en un arreglo de 2x3x4.
@@ -288,7 +330,18 @@ def reshape_2x3x4(arr):
   '''
   assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
 
-"""3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
+"""
+def reshape_10x10(arr):
+    return arr.reshape(10,10)
+    
+arr = np.random.randint(0, 101, size=100)
+
+
+reshaped_arr = reshape_10x10(arr)
+print("Arreglo original:", arr)
+print("Arreglo reshaped 10x10:")
+print(reshaped_arr)
+"""
 
 def reshape_10x10(arr):
   '''Convierte un numpy array en un numpy array de 10x10.
@@ -304,7 +357,18 @@ def reshape_10x10(arr):
   '''
   assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
 
-"""4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
+"""
+def reshape_10x10x10(arr):
+    return arr.reshape(10,10,10)
+    
+arr = np.random.randint(0, 101, size=1000)
+
+
+reshaped_arr = reshape_10x10x10(arr)
+print("Arreglo original:", arr)
+print("Arreglo reshaped 10x10x10:")
+print(reshaped_arr)
+"""
 
 def reshape_10x10x10(arr):
   '''(np.ndarray) -> np.ndarray
@@ -321,7 +385,18 @@ def reshape_10x10x10(arr):
   '''
   assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
 
-"""5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
+"""
+def reshape_10x10x10x10(arr):
+    return arr.reshape(10,10,10,10)
+    
+arr = np.random.randint(0, 101, size=10000)
+
+
+reshaped_arr = reshape_10x10x10x10(arr)
+print("Arreglo original:", arr)
+print("Arreglo reshaped 10x10x10x10:")
+print(reshaped_arr)
+"""
 
 def reshape_10x10x10x10(arr):
   '''(np.ndarray) -> np.ndarray
@@ -338,7 +413,8 @@ def reshape_10x10x10x10(arr):
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
 
-"""### NumPy Array Broadcasting
+### NumPy Array Broadcasting
+"""
 
 1. Add a NumPy array of shape (2, 3) to a NumPy array of shape (2, 1).
 """
