@@ -10,14 +10,12 @@ Original file is located at
 
 ## Sigue las instrucciones para cada celda y al final baja la libreta en formato .py y subelo al repositorio que se te indique, no modifiques el nombre la de función, solo importa una vez numpy en el código.
 """
-
 import numpy as np
 
 """### NumPy Arrays
 
 1. Create a NumPy array of 10 random integers between 0 and 100.
 """
-
 def rand_int():
   '''Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
   Para poder mantener la generación de números aleatorios
@@ -55,7 +53,6 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-
 
 """3. Create a NumPy array of the first 10 prime numbers."""
   return np.random.rand(5)
@@ -404,7 +401,6 @@ def subtract_broadcast(arr1, arr2):
 
 def multiply_broadcast(arr1, arr2):
   '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2).
-
   Parameters
   ---------
   arr1: numpy.ndarray
@@ -417,8 +413,6 @@ def multiply_broadcast(arr1, arr2):
   return arr1 * arr2
     
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
-
-
 def divide_broadcast(arr1, arr2):
   '''Divide dos arreglos de numpy con formas (2, 3) y (2, 1).
 
@@ -500,7 +494,6 @@ def image_thresholding(image):
   bw_image = np.where(image > threshold, 255, 0)
   return bw_image
 
-
 def matrix_diagonals(matrix):
   '''Regresa un tuple con los elementos de la diagonal principal y antidiagonal.
 
@@ -517,5 +510,4 @@ def matrix_diagonals(matrix):
   main_diag = matrix[np.arange(5), np.arange(5)]
   anti_diag = matrix[np.arange(5), np.arange(4, -1, -1)]
   return main_diag, anti_diag
-    
 """# Test"""
