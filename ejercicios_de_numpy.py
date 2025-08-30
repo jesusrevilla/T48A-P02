@@ -320,3 +320,186 @@ def stats(arr):
 
 1. Create a NumPy array of 10 random integers between 0 and 100. Select the first 5 elements of the array.
 """
+
+def first_5(arr):
+  '''Regresa los primeros 5 elementos de un arreglo (arr) que contiene 10 números
+  aleatorios enteros entre 0 y 100.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo con los primeros 5 elementos de arr.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy de 10 elementos con números aleatorios del 0 al 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+
+  Examples
+  --------
+  >>> arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  >>> first_5(arr)
+  array([1, 2, 3, 4, 5])
+
+  >>> arr = np.random.randint(0, 100, 10)
+  >>> first_5(arr)
+  array([35, 47, 11, 99, 56])
+  '''
+  # Verifica que el arreglo tenga exactamente 10 elementos
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+
+  # Regresa los primeros 5 elementos del arreglo
+  return arr[:5]
+
+"""2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
+
+def last_3(arr):
+  '''Regresa los últimos 3 elementos de un arreglo (arr) de numpy que contiene 10
+  números enteros aleatorios entre 0 y 100.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo con los últimos 3 elementos de arr.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy de 10 elementos con números aleatorios entre 0 y 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+
+  Examples
+  --------
+  >>> arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  >>> last_3(arr)
+  array([ 8,  9, 10])
+
+  >>> arr = np.random.randint(0, 100, 10)
+  >>> last_3(arr)
+  array([44, 29, 91])
+  '''
+  # Verifica que el arreglo tenga exactamente 10 elementos
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+
+  # Regresa los últimos 3 elementos del arreglo
+  return arr[-3:]
+
+"""3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
+
+def indices_2_4_6(arr):
+  '''Regresa los elementos en los índices 2, 4 y 6 de un arreglo (arr) que contiene
+  10 números enteros aleatorios entre 0 y 100.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo con los elementos en los índices 2, 4 y 6 de arr.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy de 10 elementos con números aleatorios entre 0 y 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+
+  Examples
+  --------
+  >>> arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  >>> indices_2_4_6(arr)
+  array([3, 5, 7])
+
+  >>> arr = np.random.randint(0, 100, 10)
+  >>> indices_2_4_6(arr)
+  array([56, 72, 45])
+  '''
+  # Verifica que el arreglo tenga exactamente 10 elementos
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+
+  # Regresa los elementos en los índices 2, 4 y 6
+  return arr[[2, 4, 6]]
+
+"""4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
+
+def greater_50(arr):
+  '''Regresa los elementos de un arreglo (arr) que contiene 10 números enteros
+  aleatorios entre 0 y 100 que son mayores a 50.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo con los elementos mayores a 50 en arr.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy de 10 elementos con números aleatorios entre 0 y 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+
+  Examples
+  --------
+  >>> arr = np.array([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+  >>> greater_50(arr)
+  array([60, 70, 80, 90, 100])
+
+  >>> arr = np.random.randint(0, 100, 10)
+  >>> greater_50(arr)
+  array([56, 72, 84, 99])
+  '''
+  # Verifica que el arreglo tenga exactamente 10 elementos
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+
+  # Filtra los elementos mayores a 50
+  return arr[arr > 50]
+
+"""5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
+
+def less_7(arr):
+  '''Regresa los elementos del arreglo (arr) que contiene 10 números enteros
+  aleatorios entre 0 y 10 que son menores o iguales a 7.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo con los elementos menores o iguales a 7 en arr.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    Arreglo de numpy de 10 elementos con números enteros entre 0 y 10.
+
+  Precondition
+  ------------
+    - arr.size == 10
+
+  Examples
+  --------
+  >>> arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  >>> less_7(arr)
+  array([1, 2, 3, 4, 5, 6, 7])
+
+  >>> arr = np.random.randint(0, 10, 10)
+  >>> less_7(arr)
+  array([5, 3, 0, 7, 6])
+  '''
+  # Verifica que el arreglo tenga exactamente 10 elementos
+  assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
+
+  # Filtra los elementos menores o iguales a 7
+  return arr[arr <= 7]
+
+"""### NumPy Array Reshaping
+
+1. Create a NumPy array of 12 numbers. Reshape the array into a 2x6 matrix.
+"""
