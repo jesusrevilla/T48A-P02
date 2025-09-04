@@ -118,3 +118,101 @@ def cubes():
             cubos.append(i)
     return np.array(cubos)
 cubes()
+
+"""### NumPy Array Operations
+
+1. Add two NumPy arrays together.
+"""
+
+def add_arrays(arr1, arr2):
+  '''Regresa la suma de dos arreglos de numpy.
+
+  Returns
+  -------
+  numpy.ndarray
+    Suma de dos arreglos NumPy con el mismo tamaño.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+  arr2: numpy.ndarray
+
+  Precondition
+  ------------
+    - arr1.shape == arr2.shape
+
+  Examples
+  --------
+  >>> add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+  array([5, 7, 9])
+
+  >>> arr1 = np.array([1, 2, 3])
+  >>> arr2 = np.array([4, 5, 6])
+  >>> add_arrays(arr1, arr2)
+  array([5, 7, 9])
+  '''
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+  return np.add(arr1, arr2)
+
+add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+"""2. Subtract two NumPy arrays from each other, second argument less first."""
+
+def subtract_arrays(arr1, arr2):
+  '''Calcula arr2 menos arr1 (arreglos de numpy).
+  '''
+  return np.subtract(arr1, arr2)
+
+subtract_arrays(np.array([4, 5, 6]), np. array([1, 2, 3]))
+
+"""3. Multiply two NumPy arrays together (element-wise)."""
+
+def multiply_arrays(arr1, arr2):
+  '''Multiplica dos arreglos de numpy elemento por elemento.
+  '''
+  return np.multiply(arr1, arr2)
+
+multiply_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+"""4. Divide two NumPy arrays by each other (element-wise)."""
+
+def divide_arrays(arr1, arr2):
+  '''Divide arr2 antre arr1 (arreglos de numpy).
+
+  Precondition
+  ------------
+    - arr2.any(0)
+  '''
+  assert arr1.any(0), 'No se puede dividir por cero'
+  return np.divide(arr1, arr2)
+
+divide_arrays(np.array([4, 5, 6]), ([1, 2, 3]))
+
+"""5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
+
+def stats(arr):
+  '''Calcula la media, la mediana y la desviación estándar de un arreglo de numpy
+  en un tuple con las siguientes posiciones: (media, mediana, desviacion_std).
+
+  Returns
+  -------
+  tuple
+    Tuple con las siguientes posiciones: (media, mediana, desviacion_std).
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de los números de 1 a 5.
+
+  Precondition
+  ------------
+    - arr.size == 5
+  '''
+  assert arr.size == 5, 'El arreglo debe tener 5 elementos'
+  media = np.mean(arr)
+  mediana = np.median(arr)
+  desviacion = np.std(arr)
+
+  return (media, mediana, desviacion)
+
+stats(np.array([1, 2, 3, 4, 5]))
