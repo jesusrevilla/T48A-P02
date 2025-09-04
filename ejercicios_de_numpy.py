@@ -17,7 +17,6 @@ import numpy as np
 
 1. Create a NumPy array of 10 random integers between 0 and 100.
 """
-
 def rand_int():
   '''Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
   Para poder mantener la generación de números aleatorios
