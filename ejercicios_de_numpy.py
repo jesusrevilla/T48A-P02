@@ -40,7 +40,9 @@ def rand_int():
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
-  return np.random.normal(0, 1, size=5)
+    np.random.normal(0, 1, size=5)
+    resultado = rand_float()
+    return resultado
   
 
 
@@ -72,7 +74,7 @@ def squares():
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
-    return np.array([i**3 for i in range(1, 11)])
+    return np.array([i**2 for i in range(1, 11)])
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
 
@@ -108,19 +110,25 @@ def add_arrays(arr1, arr2):
   >>> add_arrays(arr1, arr2)
   array([5, 7, 9])
   '''
-  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+    assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+    add_arrays=arr1 + arr2
+    return add_arrays
 
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
+    assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+    return arr2 - arr1
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
 def multiply_arrays(arr1, arr2):
   '''Multiplica dos arreglos de numpy elemento por elemento.
   '''
+    assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+    return arr1 * arr2
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
@@ -131,7 +139,9 @@ def divide_arrays(arr1, arr2):
   ------------
     - arr2.any(0)
   '''
-  assert arr1.any(0), 'No se puede dividir por cero'
+    assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+    assert arr1.any(0), 'No se puede dividir por cero'
+    return arr2 / arr1
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
