@@ -469,7 +469,6 @@ def rainfall_data(rainfall):
   rows, _ = np.where(rainfall > 100)
   unique_rows = np.unique(rows)
   print(f"Índices de las ciudades con más de 100 mm de lluvia: {unique_rows}")
-  return unique_rows
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
@@ -506,4 +505,3 @@ def matrix_diagonals(matrix):
   return (diag_principal, diag_antidiagonal)
 
 """# Test"""
-
