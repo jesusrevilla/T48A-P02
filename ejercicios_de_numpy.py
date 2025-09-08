@@ -12,7 +12,7 @@ Original file is located at
 """
 
 import numpy as np
-np.random.seed(10)
+
 """### NumPy Arrays
 
 1. Create a NumPy array of 10 random integers between 0 and 100.
@@ -34,7 +34,9 @@ def rand_int():
   >>> rand_int()
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
+  np.random.seed(10)
   return np.random.randint(0, 100, 10)
+
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
@@ -54,6 +56,7 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
+  np.random.seed(10)
   return np.random.rand(5)
 
 
@@ -80,16 +83,14 @@ def first_10_primes():
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
-  x = np.arange(1, 11)
-  return x**2
+  return np.arange(1, 11)**2
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
-  x = np.arange(1, 11)
-  return x**3
+  return np.arange(1, 11)**3
 
 """### NumPy Array Operations
 
@@ -131,14 +132,14 @@ def add_arrays(arr1, arr2):
 def subtract_arrays(arr1, arr2):
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
-  return np.subtract(arr2, arr1)
+  return arr2 - arr1
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
 def multiply_arrays(arr1, arr2):
   '''Multiplica dos arreglos de numpy elemento por elemento.
   '''
-  return np.multiply(arr1, arr2)
+  return arr1 * arr2
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
@@ -150,7 +151,7 @@ def divide_arrays(arr1, arr2):
     - arr2 no debe contener ceros.
   '''
   assert not np.any(arr2 == 0), 'No se puede dividir por cero'
-  return np.divide(arr1, arr2)
+  return arr1 / arr2
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
@@ -173,18 +174,12 @@ def stats(arr):
     - arr.size == 5
   '''
   assert arr.size == 5, 'El arreglo debe tener 5 elementos'
-  media = np.mean(arr)
-  mediana = np.median(arr)
-  desviacion_std = np.std(arr)
-  return (media, mediana, desviacion_std)
-
-
+  return (np.mean(arr), np.median(arr), np.std(arr))
 
 """### NumPy Array Indexing and Slicing
 
 1. Create a NumPy array of 10 random integers between 0 and 100. Select the first 5 elements of the array.
 """
-
 
 def first_5(arr):
   '''Regresa los primeros 5 elementos de un arr (arreglo) que contiene 10 números
@@ -203,7 +198,6 @@ def first_5(arr):
   return arr[:5]
 
 """2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
-
 
 def last_3(arr):
   '''Regresa los últimos 3 elementos de un arr (arreglo) de numpy que contiene 10
@@ -293,7 +287,7 @@ def reshape_2x6(arr):
     - arr.size == 12
   '''
   assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
-  return arr.reshape((2, 6))
+  return arr.reshape(2, 6)
 
 """2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
 
@@ -310,7 +304,7 @@ def reshape_2x3x4(arr):
     - arr.size == 24
   '''
   assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
-  return arr.reshape((2, 3, 4))
+  return arr.reshape(2, 3, 4)
 
 """3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
 
@@ -327,7 +321,7 @@ def reshape_10x10(arr):
     - arr.size == 100
   '''
   assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
-  return arr.reshape((10, 10))
+  return arr.reshape(10, 10)
 
 """4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
 
@@ -345,7 +339,7 @@ def reshape_10x10x10(arr):
     - arr.size == 1000
   '''
   assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
-  return arr.reshape((10, 10, 10))
+  return arr.reshape(10, 10, 10)
 
 """5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
 
@@ -363,7 +357,7 @@ def reshape_10x10x10x10(arr):
     - arr.size == 10000
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
-  return arr.reshape((10, 10, 10, 10))
+  return arr.reshape(10, 10, 10, 10)
 
 """### NumPy Array Broadcasting
 
@@ -387,7 +381,6 @@ def add_broadcast(arr1, arr2):
 def subtract_broadcast(arr1, arr2):
   '''(np.ndarray, np.ndarray) -> np.ndarray
   Regresa la resta de dos arreglos de numpy con formas (3, 2) y (2, 3).
-  Nota: Esta operación generará un ValueError debido a formas incompatibles para broadcasting.
 
   Parameters
   ----------
@@ -402,7 +395,6 @@ def subtract_broadcast(arr1, arr2):
 
 def multiply_broadcast(arr1, arr2):
   '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2).
-  Nota: Esta operación generará un ValueError debido a formas incompatibles para broadcasting.
 
   Parameters
   ---------
@@ -469,9 +461,7 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  # Encuentra las coordenadas (fila, columna) donde la lluvia > 100
-  rows, cols = np.where(rainfall > 100)
-  # Regresa solo las filas (ciudades) únicas
+  rows, _ = np.where(rainfall > 100)
   return np.unique(rows)
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
@@ -484,8 +474,7 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  threshold = 128
-  return np.where(image > threshold, 255, 0)
+  return np.where(image > 128, 255, 0)
 
 """### Fancy Indexing
 
@@ -508,4 +497,5 @@ def matrix_diagonals(matrix):
   diag_principal = np.diag(matrix)
   diag_antidiagonal = np.diag(np.fliplr(matrix))
   return (diag_principal, diag_antidiagonal)
+
 """# Test"""
