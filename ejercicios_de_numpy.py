@@ -130,9 +130,9 @@ def add_arrays(arr1, arr2):
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
-  '''Calcula arr2 menos arr1 (arreglos de numpy).
+  '''Calcula arr1 menos arr2 (arreglos de numpy).
   '''
-  return arr2 - arr1
+  return arr1 - arr2
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
@@ -381,6 +381,7 @@ def add_broadcast(arr1, arr2):
 def subtract_broadcast(arr1, arr2):
   '''(np.ndarray, np.ndarray) -> np.ndarray
   Regresa la resta de dos arreglos de numpy con formas (3, 2) y (2, 3).
+  Para que la operación sea posible, se transpone el segundo arreglo.
 
   Parameters
   ----------
@@ -389,12 +390,13 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  return arr1 - arr2
+  return arr1 - arr2.T
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
 def multiply_broadcast(arr1, arr2):
-  '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2).
+  '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2) usando
+  multiplicación de matrices.
 
   Parameters
   ---------
@@ -403,7 +405,7 @@ def multiply_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (3, 2).
   '''
-  return arr1 * arr2
+  return arr1 @ arr2
 
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
 
@@ -439,8 +441,8 @@ def element_wise_product(arr1, arr2):
 """
 
 def temp_data(temps):
-  '''Regresa las temperaturas que fueron mayores a 25 grados y el número de
-  días en los que la temperatura fue menor a 15 grados en una tupla.
+  '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
+  días en los que la temperatura fue menor a 15 grados. También regresa los valores.
 
   Parameters
   ----------
@@ -449,12 +451,15 @@ def temp_data(temps):
   '''
   mayores_25 = temps[temps > 25]
   dias_menores_15 = np.sum(temps < 15)
+  print(f"Temperaturas mayores a 25 grados: {mayores_25}")
+  print(f"Número de días con temperatura menor a 15 grados: {dias_menores_15}")
   return (mayores_25, dias_menores_15)
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
 def rainfall_data(rainfall):
-  '''Regresa los índices únicos de las ciudades que tuvieron más de 100 mm de lluvia.
+  '''Imprime los índices únicos de las ciudades que tuvieron más de 100 mm de lluvia.
+  También regresa los valores.
 
   Parameters
   ----------
@@ -462,7 +467,9 @@ def rainfall_data(rainfall):
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
   rows, _ = np.where(rainfall > 100)
-  return np.unique(rows)
+  unique_rows = np.unique(rows)
+  print(f"Índices de las ciudades con más de 100 mm de lluvia: {unique_rows}")
+  return unique_rows
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
@@ -474,7 +481,7 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
-  return np.where(image > 128, 255, 0)
+  return np.where(image >= 128, 255, 0)
 
 """### Fancy Indexing
 
@@ -499,3 +506,4 @@ def matrix_diagonals(matrix):
   return (diag_principal, diag_antidiagonal)
 
 """# Test"""
+
