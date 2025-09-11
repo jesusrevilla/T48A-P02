@@ -21,7 +21,7 @@ import numpy as np
 def rand_int():
     return np.random.randint(0, 101, 10)
     np.random.seed(10)
-    rand_int()
+    
   '''Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
@@ -37,7 +37,7 @@ def rand_int():
   >>> rand_int()
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
-    
+rand_int()    
   
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
