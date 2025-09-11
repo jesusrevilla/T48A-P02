@@ -34,8 +34,10 @@ def rand_int():
   >>> rand_int()
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
-  return np.random.randint(0, 100, 10)
+  return np.random.randint(0, 101, 10)
 
+np.random.seed(10)
+rand_int()
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
@@ -55,7 +57,11 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-  return np.linspace(0, 1, 5)
+  np.random.seed(10)
+  return np.random.rand(5)
+
+np.random.seed(10)
+rand_float().__repr__()
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
@@ -72,23 +78,34 @@ def first_10_primes():
   >>> first_10_primes()
   array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
   '''
-  return np.array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
+  primos = []
+  num = 2
+  while len(primos) < 10:
+      primo = all(num % p != 0 for p in primos)
+      if primo:
+          primos.append(num)
+      num += 1
+  return np.array(primos)
+
+first_10_primes()
 
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 
 def squares():
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
-  x = np.arange(1, 11)
-  return np.square(x)
+  return np.array([i**2 for i in range(1, 11)])
+
+squares()
   
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
 
 def cubes():
   '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
   '''
-  x = np.arange(1, 11)
-  return np.power(x, 3)
+  return np.array([i**3 for i in range(1, 11)])
+
+cubes()
     
 """### NumPy Array Operations
 
@@ -125,6 +142,13 @@ def add_arrays(arr1, arr2):
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   return arr1 + arr2
 
+add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+add_arrays(arr1, arr2)
+
+
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
@@ -132,6 +156,12 @@ def subtract_arrays(arr1, arr2):
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   return arr1 - arr2
+
+subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+subtract_arrays(arr1, arr2)
 
 
 """3. Multiply two NumPy arrays together (element-wise)."""
@@ -142,6 +172,12 @@ def multiply_arrays(arr1, arr2):
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   return arr1 * arr2
 
+multiply_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+multiply_arrays(arr1, arr2)
+
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
 def divide_arrays(arr1, arr2):
@@ -151,8 +187,15 @@ def divide_arrays(arr1, arr2):
   ------------
     - arr2.any(0)
   '''
-  assert arr1.any(0), 'No se puede dividir por cero'
+  assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
+  assert np.all(arr1 != 0), 'No se puede dividir por cero'
   return arr1 / arr2
+
+divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+divide_arrays(arr1, arr2)
 
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
@@ -179,7 +222,10 @@ def stats(arr):
   media = np.mean(arr)
   mediana = np.median(arr)
   desviacion = np.std(arr)
-  return tuple = (media, mediana,desviacion)
+  return (media, mediana,desviacion)
+
+arr = np.array([1, 2, 3, 4, 5])
+stats(arr)
 
 """### NumPy Array Indexing and Slicing
 
@@ -202,6 +248,10 @@ def first_5(arr):
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[:5]
 
+random_array = np.random.randint(0, 100, 10)
+print(random_array)
+first_5(random_array)
+
 """2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
 
 def last_3(arr):
@@ -219,6 +269,10 @@ def last_3(arr):
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[-3:]
+
+random_array = np.random.randint(0, 100, 10)
+print(random_array)
+last_3(random_array)
 
 """3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
 
@@ -238,6 +292,10 @@ def indices_2_4_6(arr):
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
   return arr[[2, 4, 6]]
 
+random_array = np.random.randint(0, 100, 10)
+print(random_array)
+indices_2_4_6(random_array)
+
 """4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
 
 def greater_50(arr):
@@ -254,7 +312,11 @@ def greater_50(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo debe tener 10 elementos'
-  return arr[arr > 50][:]
+  return arr[arr > 50]
+
+random_array = np.random.randint(0, 100, 10)
+print(random_array)
+greater_50(random_array)
     
 """5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
 
@@ -272,7 +334,11 @@ def less_7(arr):
     - arr.size == 10
   '''
   assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
-  return arr[arr <= 7][:]
+  return arr[arr <= 7]
+
+random_array = np.random.randint(0, 100, 10)
+print(random_array)
+less_7(random_array)
 
 """### NumPy Array Reshaping
 
@@ -294,6 +360,9 @@ def reshape_2x6(arr):
   assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
   return arr.reshape((2,6))
 
+my_array = np.arange(12)
+reshape_2x6(my_array)
+
 """2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
 
 def reshape_2x3x4(arr):
@@ -311,6 +380,9 @@ def reshape_2x3x4(arr):
   assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
   return arr.reshape((2, 3, 4))
 
+my_array = np.arange(24)
+reshape_2x3x4(my_array)
+
 """3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
 
 def reshape_10x10(arr):
@@ -326,7 +398,10 @@ def reshape_10x10(arr):
     - arr.size == 100
   '''
   assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
-  return arr.reshape((10, 10))
+  return arr.reshape(10, 10)
+
+sample_array = np.arange(100)
+reshape_10x10(sample_array)
 
 """4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
 
@@ -344,7 +419,10 @@ def reshape_10x10x10(arr):
     - arr.size == 1000
   '''
   assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
-  return arr.reshape((10, 10, 10))
+  return arr.reshape(10, 10, 10)
+
+my_array = np.arange(1000)
+reshape_10x10x10(my_array)
 
 """5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
 
@@ -362,7 +440,10 @@ def reshape_10x10x10x10(arr):
     - arr.size == 10000
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
-  return arr.reshape((10, 10, 10, 10))
+  return arr.reshape((0, 10, 10, 10)
+
+my_array = np.arange(10000)
+reshape_10x10x10x10(my_array)
 
 """### NumPy Array Broadcasting
 
