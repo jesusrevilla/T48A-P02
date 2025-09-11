@@ -576,3 +576,5 @@ def matrix_diagonals(matrix):
   return matrix[row, row], matrix[col, row]
 
 matrix_diagonals(np.arange(1, 26).reshape(5, 5))
+
+"""# Test"""
