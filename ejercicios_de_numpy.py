@@ -216,3 +216,363 @@ def stats(arr):
   return (media, mediana, desviacion)
 
 stats(np.array([1, 2, 3, 4, 5]))
+
+"""### NumPy Array Indexing and Slicing
+
+1. Create a NumPy array of 10 random integers between 0 and 100. Select the first 5 elements of the array.
+"""
+
+def first_5(arr):
+  '''Regresa los primeros 5 elementos de un arr (arreglo) que contiene 10 números
+  aleatoreos enteros entre 0 y 100.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+  '''
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+  return arr[:5]
+
+first_5(np.random.randint(0, 100, 10))
+
+"""2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
+
+def last_3(arr):
+  '''Regresa los últimos 3 elementos de un arr (arreglo) de numpy que contiene 10
+  números enteros aleatoreos entre 0 y 100.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+  '''
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+  return arr[-3:]
+
+last_3(np.random.randint(0, 100, 10))
+
+"""3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
+
+def indices_2_4_6(arr):
+  '''Regresa los elementos en los índices 2, 4 y 6 de un arr (arreglo) que contiene
+  10 números enteros aleatoreos entre 0 y 100.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+  '''
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+  return arr[[2, 4, 6]]
+
+indices_2_4_6(np.random.randint(0, 100, 10))
+
+"""4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
+
+def greater_50(arr):
+  '''Regresa los elementos del arr (arreglo) que contiene 10 números enteros
+  aleatorios entre 0 y 100 que son mayores a 50.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+  '''
+  assert arr.size == 10, 'El arreglo debe tener 10 elementos'
+  return arr[arr > 50]
+
+greater_50(np.random.randint(0, 100, 10))
+
+"""5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
+
+def less_7(arr):
+  '''Regresa los elementos del arr (arreglo) que contiene 10 números enteros
+  aleatoreos entre 0 y 100 que son menores o iguales a 7.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    - arr: arreglo de numpy de 10 elementos con numeros aleatorios del 1 al 100.
+
+  Precondition
+  ------------
+    - arr.size == 10
+  '''
+  assert arr.size == 10, 'El arreglo (arr) debe tener 10 elementos'
+  return arr[arr <= 7]
+
+less_7(np.random.randint(0, 100, 10))
+
+"""### NumPy Array Reshaping
+
+1. Create a NumPy array of 12 numbers. Reshape the array into a 2x6 matrix.
+"""
+
+def reshape_2x6(arr):
+  '''Regresa un arreglo de numpy con 12 números y lo convierte en un arreglo de 2x6.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 12 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 12
+  '''
+  assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
+  return arr.reshape((2, 6))
+
+
+reshape_2x6(np.arange(12))
+
+"""2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
+
+def reshape_2x3x4(arr):
+  '''Conviert un arreglo de numpy con 24 números en un arreglo de 2x3x4.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 24 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 24
+  '''
+  assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
+  return arr.reshape((2, 3, 4))
+
+reshape_2x3x4(np.arange(24))
+
+"""3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
+
+def reshape_10x10(arr):
+  '''Convierte un numpy array en un numpy array de 10x10.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 100 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 100
+  '''
+  assert arr.size == 100, 'El arreglo (arr) debe tener 100 elementos'
+  return arr.reshape((10,10))
+
+reshape_10x10(np.arange(100))
+
+"""4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
+
+def reshape_10x10x10(arr):
+  '''(np.ndarray) -> np.ndarray
+  Regresa un arreglo de 10x10x10.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+   arreglo de numpy de 1000 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 1000
+  '''
+  assert arr.size == 1000, 'El arreglo (arr) debe tener 1000 elementos'
+  return arr.reshape((10, 10, 10))
+
+reshape_10x10x10(np.arange(1000))
+
+"""5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
+
+def reshape_10x10x10x10(arr):
+  '''(np.ndarray) -> np.ndarray
+  Regresa un arreglo de numpy de 10x10x10x10.
+
+  Parameters
+  ----------
+  arr: numpy.ndarray
+    arreglo de numpy de 10000 elementos.
+
+  Precondition
+  ------------
+    - arr.size == 10000
+  '''
+  assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
+  return arr.reshape((10, 10, 10, 10))
+
+reshape_10x10x10x10(np.arange(10000))
+
+"""### NumPy Array Broadcasting
+
+1. Add a NumPy array of shape (2, 3) to a NumPy array of shape (2, 1).
+"""
+
+def add_broadcast(arr1, arr2):
+  '''Suma de dos arreglos de numpy con formas (2, 3) y (2, 1).
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    arreglo de numpy de forma (2, 3).
+  arr2: numpy.nd.array
+    arreglo de numpy de forma (2, 1).
+  '''
+  return arr1 + arr2
+
+add_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7], [8]]))
+
+"""2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
+
+def subtract_broadcast(arr1, arr2):
+  '''(np.ndarray, np.ndarray) -> np.ndarray
+  Regresa la resta de dos arreglos de numpy con formas (3, 2) y (2, 3).
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    arreglo de numpy de forma (3, 2).
+  arr2: numpy.ndarray
+    arreglo de numpy de forma (2, 3).
+  '''
+  return arr1 - arr2
+
+subtract_broadcast(np.array([[1, 2], [3, 4], [5, 6]]), np.array([[7, 8, 9], [10, 11, 12]]))
+
+"""3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
+
+def multiply_broadcast(arr1, arr2):
+  '''Multiplica dos arreglos de numpy con formas (2, 3) y (3, 2).
+
+  Parameters
+  ---------
+  arr1: numpy.ndarray
+    arreglo de numpy de forma (2, 3).
+  arr2: numpy.ndarray
+    arreglo de numpy de forma (3, 2).
+  '''
+  return arr1 * arr2
+
+multiply_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 8], [9, 10], [11, 12]]))
+
+"""4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
+
+def divide_broadcast(arr1, arr2):
+  '''Divide dos arreglos de numpy con formas (2, 3) y (2, 1).
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    arreglo de numpy de forma (2, 3).
+  arr2: numpy.ndarray
+    arreglo de numpy de forma (2, 1).
+  '''
+  return arr1 / arr2
+
+divide_broadcast(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7], [8]]))
+
+"""5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
+
+def element_wise_product(arr1, arr2):
+  '''Multiplica elemento a elemento dos arreglos de numpy con formas (2, 3).
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+    arreglo de numpy de forma (2, 3).
+  arr2: numpy.ndarray
+    arreglo de numpy de forma (2, 3).
+  '''
+  return arr1 * arr2
+
+element_wise_product(np.array([[1, 2, 3], [4, 5, 6]]), np.array([[7, 8, 9], [10, 11, 12]]))
+
+#Boolean Arrays and Masks
+
+#1. Temperature Data: You have a 1D NumPy array representing daily temperatures in Celsius.  Create a boolean mask that identifies days where the temperature was above 25 degrees Celsius.  Use this mask to print the temperatures on those days.  Also, calculate and print the number of days the temperature was below 15 degrees Celsius.
+
+def temp_data(temps):
+  '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
+  días en los que la temperatura fue menor a 15 grados.
+
+  Parameters
+  ----------
+  temps: numpy.ndarray
+    arreglo de numpy de temperaturas en Celsius.
+  '''
+  print('Núm. de días con temperaturas mayores a 25 grados: ' + str(np.sum(temps > 25)))
+  print('Núm. de días con temperaturas menores a 15 grados: ' + str(np.sum(temps < 15)))
+
+temp_data(np.random.randint(-15, 50, 30))
+
+"""2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
+
+def rainfall_data(rainfall):
+  '''Regresa los índices únicos de las ciudades que tuvieron más de 100 mm de lluvia en algún mes.
+
+  Parameters
+  ----------
+  rainfall: numpy.ndarray
+    arreglo 2D de numpy de lluvia en mm y ciudades.
+  '''
+  cities = np.any(rainfall > 100, axis=1)
+  return np.where(cities)
+
+rainfall_data(np.random.randint(0, 200, (5, 12)))
+
+"""3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
+
+def image_thresholding(image):
+  '''Genera un arreglo de numpy en blanco y negro.
+
+  Parameters
+  ----------
+  image: numpy.ndarray
+    arreglo 2D de numpy de una imagen en escala de grises.
+  '''
+  return image
+
+image_thresholding(np.random.randint(0, 255, (10, 10)))
+
+"""### Fancy Indexing
+
+1. Matrix Diagonals: Create a 5x5 matrix with values from 1 to 25.  Use fancy indexing to extract the elements on the main diagonal and the elements on the anti-diagonal.
+"""
+
+def matrix_diagonals(matrix):
+  '''Regresa un tuple con los elementos de la diagonal principal y antidiagonal.
+
+  Parameters
+  ----------
+  matrix: numpy.ndarray
+    arreglo 2D de numpy de 5x5.
+
+  Precondition
+  ------------
+    - matrix.shape == (5, 5)
+  '''
+  assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
+  row = np.array([0, 1, 2, 4])
+  col = row[::-1]
+  print(col)
+  return matrix[row, row], matrix[col, row]
+
+matrix_diagonals(np.arange(1, 26).reshape(5, 5))
