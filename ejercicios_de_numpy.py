@@ -132,10 +132,7 @@ def subtract_arrays(arr1, arr2):
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   return arr1 - arr2
-    
-arr1 = np.array([1, 2, 3])
-arr2 = np.array([4, 5, 6])
-return subtract_arrays(arr1, arr2)
+
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
@@ -144,10 +141,6 @@ def multiply_arrays(arr1, arr2):
   '''
   assert arr1.shape == arr2.shape, 'Los arreglos deben tener el mismo tamaño'
   return arr1 * arr2
-
-arr1 = np.array([1, 2, 3])
-arr2 = np.array([4, 5, 6])
-return multiply_arrays(arr1, arr2)
 
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
@@ -161,9 +154,6 @@ def divide_arrays(arr1, arr2):
   assert arr1.any(0), 'No se puede dividir por cero'
   return arr1 / arr2
 
-arr1 = np.array([1, 2, 3])
-arr2.any(0)
-return divide_arrays(arr1, arr2)
 
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
