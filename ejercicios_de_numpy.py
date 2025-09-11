@@ -440,7 +440,7 @@ def reshape_10x10x10x10(arr):
     - arr.size == 10000
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
-  return arr.reshape((0, 10, 10, 10)
+  return arr.reshape(0, 10, 10, 10)
 
 my_array = np.arange(10000)
 reshape_10x10x10x10(my_array)
