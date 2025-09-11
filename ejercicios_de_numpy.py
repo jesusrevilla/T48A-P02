@@ -19,6 +19,9 @@ import numpy as np
 """
 
 def rand_int():
+    return np.random.randint(0, 101, 10)
+    np.random.seed(10)
+    rand_int()
   '''Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
@@ -34,14 +37,14 @@ def rand_int():
   >>> rand_int()
   array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
   '''
-    return np.random.randint(0, 101, 10)
-    np.random.seed(10)
-    rand_int()
+    
   
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
+    np.random.seed(42)
+    return np.random.rand(5)
   '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
   Para poder mantener la generación de números aleatorios
   fija, en los ejemplos, se utiliza un seed.
@@ -57,14 +60,21 @@ def rand_float():
   >>> rand_float()
   array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
   '''
-    np.random.seed(42)
-    return np.random.rand(5)
+    
 np.random.seed(10)
 rand_float().__repr__()
 
 """3. Create a NumPy array of the first 10 prime numbers."""
 
 def first_10_primes():
+    primos = []
+    num = 2
+    while len(primos) < 10:
+        primo = all(num % p != 0 for p in primos)
+        if primo:
+          primos.append(num)
+        num += 1
+    return np.array(primos)
     
   '''Crea un arreglo de numpy con los diez primeros números primos.
 
@@ -78,21 +88,16 @@ def first_10_primes():
   >>> first_10_primes()
   array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
   '''
-    primos = []
-    num = 2
-    while len(primos) < 10:
-        primo = all(num % p != 0 for p in primos)
-      if primo:
-          primos.append(num)
-      num += 1
-    return np.array(primos)
+    
     
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
 first_10_primes()
-def squares():    
+def squares():
+    return np.array([i**2 for i in range(1, 11)])
+    
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
-    return np.array([i**2 for i in range(1, 11)])
+    
 squares()
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
