@@ -85,3 +85,164 @@ def first_5(arr):
 np.random.seed(10)
 arr = np.random.rand(10)
 print(first_5(arr))
+
+def last_3(arr):
+    assert arr.size == 10
+    return arr[-3:]
+
+np.random.seed(10)
+arr = np.random.randint(0, 100, 10)
+print(last_3(arr))
+
+
+def indices_2_4_6(arr):
+    assert arr.size == 10
+    return arr[[2, 4, 6]]
+
+np.random.seed(10)
+arr = np.random.randint(0, 100, 10)
+print(indices_2_4_6(arr))
+
+
+def greater_50(arr):
+    assert arr.size == 10
+    return arr[arr > 50]
+
+np.random.seed(10)
+arr = np.random.randint(0, 100, 10)
+print(greater_50(arr))
+
+
+def less_7(arr):
+    assert arr.size == 10
+    return arr[arr <= 7]
+
+np.random.seed(10)
+arr = np.random.randint(0, 10, 10)
+print(less_7(arr))
+
+
+def reshape_2x6(arr):
+    assert arr.size == 12
+    return arr.reshape(2, 6)
+
+arr = np.arange(12)
+print(reshape_2x6(arr))
+
+
+def reshape_2x3x4(arr):
+    assert arr.size == 24
+    return arr.reshape(2, 3, 4)
+
+arr = np.arange(24)
+print(reshape_2x3x4(arr))
+
+
+def reshape_10x10(arr):
+    assert arr.size == 100
+    return arr.reshape(10, 10)
+
+arr = np.arange(100)
+print(reshape_10x10(arr))
+
+
+def reshape_10x10x10(arr):
+    assert arr.size == 1000
+    return arr.reshape(10, 10, 10)
+
+arr = np.arange(1000)
+print(reshape_10x10x10(arr))
+
+
+def reshape_10x10x10x10(arr):
+    assert arr.size == 10000
+    return arr.reshape(10, 10, 10, 10)
+
+arr = np.arange(10000)
+print(reshape_10x10x10x10(arr))
+
+
+def add_broadcast(arr1, arr2):
+    return arr1 + arr2
+
+a1 = np.array([[1, 2, 3],
+               [4, 5, 6]])
+a2 = np.array([[10],
+               [20]])
+print(add_broadcast(a1, a2))
+
+
+def subtract_broadcast(arr1, arr2):
+    return arr1 - arr2.T
+
+a1 = np.array([[1, 2, 3],
+               [4, 5, 6]])
+a2 = np.array([[10, 20],
+               [30, 40],
+               [50, 60]])
+print(subtract_broadcast(a1, a2))
+
+
+def multiply_broadcast(arr1, arr2):
+    return np.dot(arr1, arr2)
+
+a1 = np.array([[1, 2, 3],
+               [4, 5, 6]])
+a2 = np.array([[1, 2],
+               [3, 4],
+               [5, 6]])
+print(multiply_broadcast(a1, a2))
+
+
+def divide_broadcast(arr1, arr2):
+    return arr1 / arr2
+
+a1 = np.array([[10, 20, 30],
+               [40, 50, 60]])
+a2 = np.array([[10],
+               [5]])
+print(divide_broadcast(a1, a2))
+
+
+def element_wise_product(arr1, arr2):
+    return arr1 * arr2
+
+a1 = np.array([[1, 2, 3],
+               [4, 5, 6]])
+a2 = np.array([[6, 5, 4],
+               [3, 2, 1]])
+print(element_wise_product(a1, a2))
+
+def temp_data(temps):
+    above_25 = temps[temps > 25]
+    below_15_count = np.sum(temps < 15)
+    return above_25, below_15_count
+
+temps = np.array([12, 18, 26, 30, 10, 22, 27])
+print(temp_data(temps))
+
+def rainfall_data(rainfall):
+    return np.where((rainfall > 100).any(axis=1))[0]
+
+rain = np.array([[50, 80, 90],
+                 [120, 30, 40],
+                 [60, 70, 110]])
+print(rainfall_data(rain))
+
+
+def image_thresholding(image):
+    return np.where(image > 128, 255, 0).astype(np.uint8)
+
+img = np.array([[0, 128, 129],
+                [200, 50, 255]])
+print(image_thresholding(img))
+
+
+def matrix_diagonals(matrix):
+    assert matrix.shape == (5, 5)
+    main_diag = matrix[np.arange(5), np.arange(5)]
+    anti_diag = matrix[np.arange(5), np.arange(4, -1, -1)]
+    return main_diag, anti_diag
+
+mat = np.arange(1, 26).reshape(5, 5)
+print(matrix_diagonals(mat))
