@@ -45,6 +45,8 @@ def rand_int():
   '''
   return np.random.randint(0, 100, 10)
 
+rand_int()
+
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 
 def rand_float():
@@ -65,6 +67,8 @@ def rand_float():
   '''
   return np.random.random(5)
 
+rand_float()
+
 """3. Create a NumPy array of the first 10 prime numbers."""
 
 def first_10_primes():
@@ -84,13 +88,16 @@ def first_10_primes():
   primos = []
   n = 2
   while len(primos) < 10:
-      for i in range(int(np.sqrt(n)) + 1):
+      is_prime = True
+      for i in range(2, int(np.sqrt(n)) + 1):
           if n % i == 0:
+              is_prime = False
               break
-          else:
-              primos.append(n)
-          n += 1
+      if is_prime:
+          primos.append(n)
+      n += 1
   return np.array(primos)
+
 first_10_primes()
 
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
@@ -105,6 +112,7 @@ def squares():
           i = i**2
           cuadrados.append(i)
   return np.array(cuadrados)
+    
 squares()
 
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
@@ -117,6 +125,7 @@ def cubes():
             i = i**3
             cubos.append(i)
     return np.array(cubos)
+    
 cubes()
 
 """### NumPy Array Operations
