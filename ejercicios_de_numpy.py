@@ -1,91 +1,211 @@
+# -*- coding: utf-8 -*-
 """Ejercicios de numpy.ipynb
-##CUEVAS GONZALEZ ARELI ALEJANDRA 
-## Sigue las instrucciones para cada celda y al final baja la libreta en formato .py y subelo al repositorio que se te indique, no modifiques el nombre la de función, solo importa una vez numpy en el código.
+CUEVAS GONZALEZ ARELI ALEJANDRA 
+ Sigue las instrucciones para cada celda y al final baja la libreta en formato .py y subelo al repositorio que se te indique, no modifiques el nombre la de función, solo importa una vez numpy en el código.
 """
+
 import numpy as np
 
- '''1. Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.'''
+import random
+
+"""### NumPy Arrays
+
+1. Create a NumPy array of 10 random integers between 0 and 100.
+"""
+
 def rand_int():
-  return np.random.randint(0, 100, 10)
+    return np.random.randint(0,101,10)
+
+
 np.random.seed(10)
 rand_int()
+  '''Crea un arreglo de numpy con 10 enteros aleatorios entre 0 y 100.
+  Para poder mantener la generación de números aleatorios
+  fija, en los ejemplos, se utiliza un seed.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo de numpy con 10 enteros entre 0 y 100.
+
+  Examples
+  --------
+  >>> np.random.seed(10)
+  >>> rand_int()
+  array([  9, 100,  15,  64,  28,  89,  93,  29,   8,  73])
+  '''
+  
+
+
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
+
 def rand_float():
-    return np.random.rand(5)
   np.random.seed(10)
+  return np.random.rand(5)
+
+np.random.seed(10)
 rand_float().__repr__()
+  '''Regresa un arreglo de numpy con 5 números punto flotante entre 0 y 1.
+  Para poder mantener la generación de números aleatorios
+  fija, en los ejemplos, se utiliza un seed.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo de numpy con 5 números punto flotante entre 0 y 1.
+
+  Examples
+  --------
+  >>> np.random.seed(10)
+  >>> rand_float()
+  array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
+  '''
+
+
 """3. Create a NumPy array of the first 10 prime numbers."""
+
 def first_10_primes():
-    primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-    return np.array(primes)
+    primos = []
+  num = 2
+  while len(primos) < 10:
+      primo = all(num % p != 0 for p in primos)
+      if primo:
+          primos.append(num)
+      num += 1
+  return np.array(primos)
+
 first_10_primes()
+  '''Crea un arreglo de numpy con los diez primeros números primos.
+
+  Returns
+  -------
+  numpy.ndarray
+    Arreglo de numpy con los diez primeros números primos.
+
+  Examples
+  --------
+  >>> first_10_primes()
+  array([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29])
+  '''
+
+
 """4. Create a NumPy array of the squares of the numbers from 1 to 10."""
+
+def squares():
+    return np.array([i**2 for i in range(1, 11)])
+
+squares()
   '''Regresa un arreglo de numpy con los cuadrados de los números del 1 al 10.
   '''
-def squares():
-    return np.arange(1, 11) ** 2
-squares()
+  
+
 """5. Create a NumPy array of the cubes of the numbers from 1 to 10."""
-  '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
-  '''
+
 def cubes():
-    return np.arange(1, 11) ** 3
+    return np.array([i**3 for i in range(1, 11)])
 
 cubes()
+  '''Regresa un arreglo de numpy con los cubos de los números del 1 al 10.
+  '''
+  
+
 """### NumPy Array Operations
 
 1. Add two NumPy arrays together.
 """
-  '''Regresa la suma de dos arreglos de numpy.'''
+
 def add_arrays(arr1, arr2):
-  assert arr1.shape == arr2.shape, "Arrays must have the same shape"
+    assert arr1.shape == arr2.shape,
   return arr1 + arr2
+
 add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([4, 5, 6])
 add_arrays(arr1, arr2)
+  '''Regresa la suma de dos arreglos de numpy.
+
+  Returns
+  -------
+  numpy.ndarray
+    Suma de dos arreglos NumPy con el mismo tamaño.
+
+  Parameters
+  ----------
+  arr1: numpy.ndarray
+  arr2: numpy.ndarray
+
+  Precondition
+  ------------
+    - arr1.shape == arr2.shape
+
+  Examples
+  --------
+  >>> add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+  array([5, 7, 9])
+
+  >>> arr1 = np.array([1, 2, 3])
+  >>> arr2 = np.array([4, 5, 6])
+  >>> add_arrays(arr1, arr2)
+  array([5, 7, 9])
+  '''
+  
+
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 
 def subtract_arrays(arr1, arr2):
-    assert arr1.shape == arr2.shape, "Arrays must have the same shape"
-    return arr2 - arr1
+    assert arr1.shape == arr2.shape,
+  return arr1 - arr2
 
 subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([4, 5, 6])
 subtract_arrays(arr1, arr2)
   '''Calcula arr2 menos arr1 (arreglos de numpy).
   '''
+  
 
 """3. Multiply two NumPy arrays together (element-wise)."""
 
 def multiply_arrays(arr1, arr2):
-  '''Multiplica dos arreglos de numpy elemento por elemento.
-  '''
-    assert arr1.shape == arr2.shape, "Los arreglos deben tener el mismo tamaño"
-    return arr1 * arr2
+    assert arr1.shape == arr2.shape,
+  return arr1 * arr2
+
 multiply_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
 
 
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([4, 5, 6])
 multiply_arrays(arr1, arr2)
+  '''Multiplica dos arreglos de numpy elemento por elemento.
+  '''
+  
+
 """4. Divide two NumPy arrays by each other (element-wise)."""
 
 def divide_arrays(arr1, arr2):
-    '''Divide arr2 antre arr1 (arreglos de numpy).
+    assert arr1.shape == arr2.shape, 
+  assert np.all(arr1 != 0), 
 
-    Precondition
-    ------------
-      - arr2.any(0)
-    '''
-    assert arr1.shape == arr2.shape, "Arrays must have the same shape"
-    assert not np.any(arr1 == 0), "No se puede dividir por cero"
-    return arr2 / arr1
+  return arr1 / arr2
+
 divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
+
+
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([4, 5, 6])
 divide_arrays(arr1, arr2)
+  '''Divide arr2 antre arr1 (arreglos de numpy).
+
+  Precondition
+  ------------
+    - arr2.any(0)
+  '''
+  
+
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 
 def stats(arr):
@@ -514,3 +634,16 @@ def matrix_diagonals(matrix):
     main_diagonal = matrix[np.arange(5), np.arange(5)]
     invert_diagonal = matrix[np.arange(5), np.arange(4, -1, -1)]
   return main_diagonal, invert_diagonal
+
+  '''Regresa un tuple con los elementos de la diagonal principal y antidiagonal.
+
+  Parameters
+  ----------
+  matrix: numpy.ndarray
+    arreglo 2D de numpy de 5x5.
+
+  Precondition
+  ------------
+    - matrix.shape == (5, 5)
+  '''
+  
