@@ -1,5 +1,5 @@
 """Ejercicios de numpy.ipynb
-##CUEVAS GONZALEZ ARELI ALEJANDRA 
+##CUEVAS GONZALEZ ARELI ALEJANDRA 175454
 ## Sigue las instrucciones para cada celda y al final baja la libreta en formato .py y subelo al repositorio que se te indique, no modifiques el nombre la de función, solo importa una vez numpy en el código.
 """
 import numpy as np
