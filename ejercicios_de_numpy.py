@@ -12,7 +12,7 @@ Original file is located at
 """
 
 import numpy as np
-
+import random
 """### NumPy Arrays
 
 1. Create a NumPy array of 10 random integers between 0 and 100.
