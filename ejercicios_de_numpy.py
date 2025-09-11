@@ -358,7 +358,7 @@ def reshape_2x6(arr):
     - arr.size == 12
   '''
   assert arr.size == 12, 'El arreglo (arr) debe tener 12 elementos'
-  return arr.reshape((2,6))
+  return arr.reshape(2,6)
 
 my_array = np.arange(12)
 reshape_2x6(my_array)
@@ -378,7 +378,7 @@ def reshape_2x3x4(arr):
     - arr.size == 24
   '''
   assert arr.size == 24, 'El arreglo (arr) debe tener 24 elementos'
-  return arr.reshape((2, 3, 4))
+  return arr.reshape(2, 3, 4)
 
 my_array = np.arange(24)
 reshape_2x3x4(my_array)
@@ -440,7 +440,7 @@ def reshape_10x10x10x10(arr):
     - arr.size == 10000
   '''
   assert arr.size == 10000, 'El arreglo (arr) debe tener 10000 elementos'
-  return arr.reshape(0, 10, 10, 10)
+  return arr.reshape(10, 10, 10, 10)
 
 my_array = np.arange(10000)
 reshape_10x10x10x10(my_array)
