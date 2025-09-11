@@ -391,6 +391,10 @@ def add_broadcast(arr1, arr2):
   '''
   return arr1 + arr2
 
+arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+arr2 = np.array([[10], [20]])
+add_broadcast(arr1, arr2)
+
 """2. Subtract a NumPy array of shape (3, 2) from a NumPy array of shape (2, 3)."""
 
 def subtract_broadcast(arr1, arr2):
@@ -404,7 +408,11 @@ def subtract_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (2, 3).
   '''
-  return arr1 - arr2
+  return arr1 - arr2.T
+
+arr1 = np.array([[1, 2], [3, 4], [5, 6]])
+arr2 = np.array([[10, 20, 30], [40, 50, 60]])
+subtract_broadcast(arr1, arr2)
 
 """3. Multiply a NumPy array of shape (2, 3) by a NumPy array of shape (3, 2)."""
 
@@ -418,7 +426,11 @@ def multiply_broadcast(arr1, arr2):
   arr2: numpy.ndarray
     arreglo de numpy de forma (3, 2).
   '''
-  return arr1 * arr2
+  return np.dot(arr1, arr2)
+
+arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+arr2 = np.array([[7, 8], [9, 10], [11, 12]])
+multiply_broadcast(arr1, arr2)
 
 """4. Divide a NumPy array of shape (2, 3) by a NumPy array of shape (2, 1)."""
 
@@ -434,6 +446,10 @@ def divide_broadcast(arr1, arr2):
   '''
   return arr1 / arr2
 
+arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+arr2 = np.array([[10], [20]])
+divide_broadcast(arr1, arr2)
+
 """5. Calculate the element-wise product of two NumPy arrays of shape (2, 3)."""
 
 def element_wise_product(arr1, arr2):
@@ -447,7 +463,10 @@ def element_wise_product(arr1, arr2):
     arreglo de numpy de forma (2, 3).
   '''
   return arr1 * arr2
-
+    
+arr1 = np.array([[1, 2, 3], [4, 5, 6]])
+arr2 = np.array([[7, 8, 9], [10, 11, 12]])
+element_wise_product(arr1, arr2)
 """### Boolean Arrays and Masks
 
 1. Temperature Data: You have a 1D NumPy array representing daily temperatures in Celsius.  Create a boolean mask that identifies days where the temperature was above 25 degrees Celsius.  Use this mask to print the temperatures on those days.  Also, calculate and print the number of days the temperature was below 15 degrees Celsius.
@@ -462,6 +481,13 @@ def temp_data(temps):
   temps: numpy.ndarray
     arreglo de numpy de temperaturas en Celsius.
   '''
+    high_temps = temps[temps > 25]
+    print(f"Temperaturas mayores a 25 grados: {high_temps}")
+    low_temps_count = np.sum(temps < 15)
+    print(f"Número de días con temperatura menor a 15 grados: {low_temps_count}")
+
+temps = np.array([22, 28, 18, 30, 25, 15, 12, 20, 32, 26])
+temp_data(temps)
   
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
@@ -474,7 +500,10 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-
+    indices = np.where(rainfall > 100)
+    indices_lineales = np.ravel_multi_index(indices, rainfall.shape)
+    print("Índices de las ciudades con más de 100 mm de lluvia:", indices_lineales)
+    
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
 def image_thresholding(image):
@@ -485,7 +514,12 @@ def image_thresholding(image):
   image: numpy.ndarray
     arreglo 2D de numpy de una imagen en escala de grises.
   '''
+    binary_image = np.where(image >= threshold, 255, 0)
+    return binary_image
 
+threshold = 128
+image = np.array([[100, 150, 200], [50, 120, 180], [20, 80, 140]])
+image_thresholding(image)
 """### Fancy Indexing
 
 1. Matrix Diagonals: Create a 5x5 matrix with values from 1 to 25.  Use fancy indexing to extract the elements on the main diagonal and the elements on the anti-diagonal.
@@ -506,3 +540,6 @@ def matrix_diagonals(matrix):
   assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
 
 """# Test"""
+  main_diagonal = matrix[np.arange(5), np.arange(5)]
+  invert_diagonal = matrix[np.arange(5), np.arange(4, -1, -1)]
+  return main_diagonal, invert_diagonal
