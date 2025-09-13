@@ -42,8 +42,8 @@ rand_int()
 
 """2. Create a NumPy array of 5 random floating-point numbers between 0 and 1."""
 def rand_float():
-  np.random.seed(10)
-  return np.random.rand(5)
+    np.random.seed(10)
+    return np.random.rand(5)
 
 np.random.seed(10)
 rand_float().__repr__()
@@ -66,13 +66,13 @@ rand_float().__repr__()
 """3. Create a NumPy array of the first 10 prime numbers."""
 def first_10_primes():
     primos = []
-  num = 2
-  while len(primos) < 10:
-      primo = all(num % p != 0 for p in primos)
-      if primo:
-          primos.append(num)
-      num += 1
-  return np.array(primos)
+    num = 2
+    while len(primos) < 10:
+        primo = all(num % p != 0 for p in primos)
+        if primo:
+            primos.append(num)
+        num += 1
+    return np.array(primos)
 
 first_10_primes()
   '''Crea un arreglo de numpy con los diez primeros números primos.
@@ -111,11 +111,9 @@ cubes()
 """
 def add_arrays(arr1, arr2):
     assert arr1.shape == arr2.shape,
-  return arr1 + arr2
+    return arr1 + arr2
 
 add_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-
-
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([4, 5, 6])
 add_arrays(arr1, arr2)
@@ -149,11 +147,9 @@ add_arrays(arr1, arr2)
 """2. Subtract two NumPy arrays from each other, second argument less first."""
 def subtract_arrays(arr1, arr2):
     assert arr1.shape == arr2.shape,
-  return arr1 - arr2
+    return arr1 - arr2
 
 subtract_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-
-
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([4, 5, 6])
 subtract_arrays(arr1, arr2)
@@ -163,7 +159,7 @@ subtract_arrays(arr1, arr2)
 """3. Multiply two NumPy arrays together (element-wise)."""
 def multiply_arrays(arr1, arr2):
     assert arr1.shape == arr2.shape,
-  return arr1 * arr2
+    return arr1 * arr2
 
 multiply_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
 
@@ -178,13 +174,11 @@ multiply_arrays(arr1, arr2)
 """4. Divide two NumPy arrays by each other (element-wise)."""
 def divide_arrays(arr1, arr2):
     assert arr1.shape == arr2.shape, 
-  assert np.all(arr1 != 0), 
+    assert np.all(arr1 != 0), 
 
-  return arr1 / arr2
+    return arr1 / arr2
 
 divide_arrays(np.array([1, 2, 3]), np.array([4, 5, 6]))
-
-
 arr1 = np.array([1, 2, 3])
 arr2 = np.array([4, 5, 6])
 divide_arrays(arr1, arr2)
@@ -198,12 +192,11 @@ divide_arrays(arr1, arr2)
 """5. Create a NumPy array of the integer numbers from 1 to 5. Calculate the mean, median, and standard deviation."""
 def stats(arr):
     assert arr.size == 5, 
+    mean = np.mean(arr)
+    median = np.median(arr)
+    std_dev = np.std(arr)
 
-  mean = np.mean(arr)
-  median = np.median(arr)
-  std_dev = np.std(arr)
-
-  return (mean, median, std_dev)
+    return (mean, median, std_dev)
 
 arr = np.array([1, 2, 3, 4, 5])
 stats(arr)
@@ -231,7 +224,7 @@ stats(arr)
 """
 def first_5(arr):
     assert arr.size == 10, 
-  return arr[:5]
+    return arr[:5]
 
 random_array = np.random.randint(0, 100, 10)
 print(random_array)
@@ -252,7 +245,7 @@ first_5(random_array)
 """2. Create a NumPy array of 10 random integers between 0 and 100. Select the last 3 elements of the array."""
 def last_3(arr):
     assert arr.size == 10, 
-  return arr[-3:]
+    return arr[-3:]
 
 random_array = np.random.randint(0, 100, 10)
 print(random_array)
@@ -273,7 +266,7 @@ last_3(random_array)
 """3. Create a NumPy array of 10 random integers between 0 and 100. Select the elements at indices 2, 4, and 6."""
 def indices_2_4_6(arr):
     assert arr.size == 10, 
-  return arr[[2, 4, 6]]
+    return arr[[2, 4, 6]]
 
 random_array = np.random.randint(0, 100, 10)
 print(random_array)
@@ -294,7 +287,7 @@ indices_2_4_6(random_array)
 """4. Create a NumPy array of 10 random integers between 0 and 100. Select the elements with values greater than 50."""
 def greater_50(arr):
      assert arr.size == 10, 
-  return arr[arr > 50]
+    return arr[arr > 50]
 
 random_array = np.random.randint(0, 100, 10)
 print(random_array)
@@ -315,7 +308,7 @@ greater_50(random_array)
 """5. Create a NumPy array of 10 random integers between 0 and 10. Select elements less than or equal to 7."""
 def less_7(arr):
     assert arr.size == 10, 
-  return arr[arr <= 7]
+    return arr[arr <= 7]
 
 random_array = np.random.randint(0, 100, 10)
 print(random_array)
@@ -339,7 +332,7 @@ less_7(random_array)
 """
 def reshape_2x6(arr):
     assert arr.size == 12, 
-  return arr.reshape(2, 6)
+    return arr.reshape(2, 6)
 
 my_array = np.arange(12)
 reshape_2x6(my_array)
@@ -358,7 +351,7 @@ reshape_2x6(my_array)
 """2. Create a NumPy array of 24 numbers. Reshape the array into a 2x3x4 tensor."""
 def reshape_2x3x4(arr):
     assert arr.size == 24, 
-  return arr.reshape(2, 3, 4)
+    return arr.reshape(2, 3, 4)
 
 my_array = np.arange(24)
 reshape_2x3x4(my_array)
@@ -377,7 +370,7 @@ reshape_2x3x4(my_array)
 """3. Create a NumPy array of 100 numbers. Reshape the array into a 10x10 matrix."""
 def reshape_10x10(arr):
     assert arr.size == 100, 
-  return arr.reshape(10, 10)
+    return arr.reshape(10, 10)
 
 sample_array = np.arange(100)
 reshape_10x10(sample_array)
@@ -395,8 +388,8 @@ reshape_10x10(sample_array)
   
 """4. Create a NumPy array of 1000 numbers. Reshape the array into a 10x10x10 tensor."""
 def reshape_10x10x10(arr):
-      assert arr.size == 1000, 
-  return arr.reshape(10, 10, 10)
+    assert arr.size == 1000, 
+    return arr.reshape(10, 10, 10)
 
 my_array = np.arange(1000)
 reshape_10x10x10(my_array)
@@ -416,7 +409,7 @@ reshape_10x10x10(my_array)
 """5. Create a NumPy array of 10000 numbers. Reshape the array into a 10x10x10x10 tensor."""
 def reshape_10x10x10x10(arr):
     assert arr.size == 10000, 
-  return arr.reshape(10, 10, 10, 10)
+    return arr.reshape(10, 10, 10, 10)
 
 my_array = np.arange(10000)
 reshape_10x10x10x10(my_array)
@@ -529,9 +522,9 @@ element_wise_product(arr1, arr2)
 """
 def temp_data(temps):
     high_temps = temps[temps > 25]
-  print(f"Temperaturas mayores a 25 grados: {high_temps}")
-  low_temps_count = np.sum(temps < 15)
-  print(f"Número de días con temperatura menor a 15 grados: {low_temps_count}")
+    print(f"Temperaturas mayores a 25 grados: {high_temps}")
+    low_temps_count = np.sum(temps < 15)
+    print(f"Número de días con temperatura menor a 15 grados: {low_temps_count}")
     
 temps = np.array([22, 28, 18, 30, 25, 15, 12, 20, 32, 26])
 temp_data(temps)
@@ -562,7 +555,7 @@ def rainfall_data(rainfall):
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 def image_thresholding(image):
     binary_image = np.where(image >= threshold, 255, 0)
-  return binary_image
+    return binary_image
 
 threshold = 128
 image = np.array([[100, 150, 200], [50, 120, 180], [20, 80, 140]])
@@ -583,7 +576,7 @@ def matrix_diagonals(matrix):
     assert matrix.shape == (5, 5), 'La matriz debe ser de 5x5'
     main_diagonal = matrix[np.arange(5), np.arange(5)]
     invert_diagonal = matrix[np.arange(5), np.arange(4, -1, -1)]
-  return main_diagonal, invert_diagonal
+    return main_diagonal, invert_diagonal
   '''Regresa un tuple con los elementos de la diagonal principal y antidiagonal.
 
   Parameters
